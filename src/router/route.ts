@@ -88,6 +88,17 @@ export const routes: any = [
                 ],
             },
             {
+                path: 'categories',
+                children: [
+                    {
+                        path: '',
+                        name: 'categories-list',
+                        component: Page.CategoriesView,
+                        beforeEnter: ifAuthenticated,
+                    },
+                ],
+            },
+            {
                 path: ':pathMatch(.*)*',
                 component: Page.NotFound,
                 name: 'page-not-found',
