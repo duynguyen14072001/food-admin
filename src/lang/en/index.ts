@@ -1,4 +1,3 @@
-import sidebar from './sidebar'
 import validation from './validation'
 import base from './base'
 
@@ -14,6 +13,5 @@ export const en = {
     detail: 'Detail',
     submit: 'Submit',
     cancel: 'Cancel',
-    sidebar,
     validation,
 }

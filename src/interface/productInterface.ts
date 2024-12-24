@@ -3,9 +3,9 @@ import type { Result } from './commonInterface'
 export interface Product {
     id: number
     name: string
-    image_url:string
-    description:string
-    price:number
+    image_url: string
+    description: string
+    price: number
     created_at: string
 }
 

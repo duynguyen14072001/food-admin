@@ -91,23 +91,11 @@ const rowSelection: any = {
 
 <style scoped lang="scss">
 #tbl {
-    // margin: 0 10px;
-
     .tbl-head {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 12px;
-
-        .title {
-            margin: 0;
-            font-family: Noto Sans JP;
-            font-size: 19px;
-            font-weight: 700;
-            line-height: 28px;
-            letter-spacing: 0em;
-            color: var(--vt-c-gray-v10);
-        }
 
         .ant-btn {
             border-radius: var(--vt-br-btn);

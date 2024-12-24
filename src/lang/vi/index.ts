@@ -3,6 +3,7 @@ import base from './base'
 import sidebar from './sidebar'
 import validation from './validation'
 import products from './products'
+import categories from './categories'
 
 export const vi = {
     ...base,
@@ -10,4 +11,5 @@ export const vi = {
     validation,
     sidebar,
     products,
+    categories,
 }

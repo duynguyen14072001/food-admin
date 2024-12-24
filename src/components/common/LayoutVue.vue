@@ -13,10 +13,10 @@ import { AppHeaderVue, AppSidebarVue } from '.'
 </template>
 
 <style lang="scss" scoped>
-.ant-layout{
+.ant-layout {
     display: flex;
     flex-direction: row;
-    .ant-menu{
+    .ant-menu {
         max-width: 200px;
     }
 }

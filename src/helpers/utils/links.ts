@@ -11,6 +11,14 @@ export const SIDE_MENU_ADMIN = {
         class: '',
         menu_childs: [],
     },
+    categories: {
+        order: 2,
+        label: t('sidebar.categories'),
+        route: '/categories',
+        name: 'categories',
+        class: '',
+        menu_childs: [],
+    },
     orders: {
         order: 2,
         label: t('sidebar.orders'),

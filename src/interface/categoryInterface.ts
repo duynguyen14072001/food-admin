@@ -8,3 +8,7 @@ export interface Category {
 export interface CategoryResult extends Result {
     data?: Category[]
 }
+
+export interface FormStateCategory {
+    name: string
+}

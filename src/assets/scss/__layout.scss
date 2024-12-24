@@ -218,3 +218,15 @@
         }
     }
 }
+
+.ant-layout-content {
+    margin: 40px 0 0;
+    background-color: var(--vt-c-white);
+}
+
+.title {
+    display: flex;
+    padding: 0 12px 10px;
+    justify-content: space-between;
+    background-color: #f5f5f5;
+}

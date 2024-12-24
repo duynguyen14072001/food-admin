@@ -5,4 +5,11 @@ export default {
     mail_address: 'Địa chỉ email',
     password: 'Mật khẩu',
     login_success: 'Đăng nhập thành công',
+    create_success: 'Tạo mới thành công',
+    create_failed: 'Tạo mới thất bại',
+    button: {
+        create: 'Tạo mới',
+        cancel: 'Hủy',
+        submit: 'OK',
+    },
 }

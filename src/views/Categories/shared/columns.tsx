@@ -1,5 +1,5 @@
-import type { ColumnTable } from "@/interface";
-import i18n from "@/lang";
+import type { ColumnTable } from '@/interface'
+import i18n from '@/lang'
 
 const { t } = i18n
 

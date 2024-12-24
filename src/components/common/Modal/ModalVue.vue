@@ -41,10 +41,10 @@ const {
                         :loading="loading"
                         @click="$emit('submit')"
                     >
-                        {{ okText || t('submit') }}
+                        {{ t('button.submit') }}
                     </a-button>
                     <a-button key="back" @click="$emit('cancel')">
-                        {{ t('cancel') }}
+                        {{ t('button.cancel') }}
                     </a-button>
                 </div>
             </template>
@@ -54,13 +54,4 @@ const {
     </div>
 </template>
 
-<style lang="scss" scoped>
-.ant-btn {
-    &:nth-child(2) {
-        &:hover {
-            border-color: var(--vt-c-white-v2);
-            color: var(--vt-c-black-bold);
-        }
-    }
-}
-</style>
+<style lang="scss" scoped></style>
