@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { notify, STATUS_CODE_SUCCESS, trim } from '@/helpers'
 import type { FormStateCategory } from '@/interface'
-import { reactive, ref, type UnwrapRef } from 'vue'
+import { onMounted, reactive, ref, watch, type UnwrapRef } from 'vue'
 import { useI18n } from 'vue3-i18n'
 import { useCategoryStore } from '@/stores/category'
 import { FORM_CATEGORY, ruleCategory } from '../shared'
@@ -20,12 +20,14 @@ const handleSubmit = async () => {
     await formRef.value
         .validate()
         .then(async () => {
-            const { status_code } = await categoriesStore.create(formState)
+            const { status_code } = !props.id
+                ? await categoriesStore.create(formState)
+                : await categoriesStore.update(formState, props.id)
             if (status_code !== STATUS_CODE_SUCCESS) {
-                return notify(t('create_failed'), '', 'error')
+                return notify(t(`${!props.id ? 'create' : 'update'}_failed`), '', 'error')
             }
             emit('close')
-            notify(t('create_success'), '', 'success')
+            notify(t(`${!props.id ? 'create' : 'update'}_success`), '', 'success')
             formRef.value.resetFields()
         })
         .catch((error: any) => {
@@ -34,6 +36,27 @@ const handleSubmit = async () => {
 }
 
 const onFinishFailed = (errorInfo: any) => console.error('Failed:', errorInfo)
+
+const getData = async (id: number) => {
+    await categoriesStore.detail(id)
+    if (!categoriesStore.getCategoryDetail) {
+        formState.name = ''
+        return
+    }
+    formState.name = categoriesStore.getCategoryDetail.name
+}
+
+watch(
+    () => props.id,
+    async () => props.id && (await getData(props.id))
+)
+
+watch(
+    () => props.open,
+    () => !props.open && formRef.value.resetFields()
+)
+
+onMounted(async () => props.id && (await getData(props.id)))
 </script>
 
 <template>

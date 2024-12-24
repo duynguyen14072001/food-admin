@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import TableData from '@/components/common/TableData/TableData.vue'
 import { INITIAL_QUERY } from '@/helpers'
 import { useProductStore } from '@/stores/product'
 import { onMounted, ref } from 'vue'
@@ -20,8 +19,11 @@ onMounted(async () => {
 
 <template>
     <section>
-        <h1>{{ t('products.title') }}</h1>
-        <TableData
+        <div class="title">
+            <h1>{{ t('products.title') }}</h1>
+            <a-button>{{ t('button.create') }}</a-button>
+        </div>
+        <table-data
             :data="productsStore.getProduct"
             :columns="columns"
             :loading="loading"

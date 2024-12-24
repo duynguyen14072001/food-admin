@@ -20,7 +20,7 @@ export const SIDE_MENU_ADMIN = {
         menu_childs: [],
     },
     orders: {
-        order: 2,
+        order: 3,
         label: t('sidebar.orders'),
         route: '/orders',
         name: 'orders',
@@ -28,7 +28,7 @@ export const SIDE_MENU_ADMIN = {
         menu_childs: [],
     },
     coupons: {
-        order: 3,
+        order: 4,
         label: t('sidebar.coupons'),
         route: '/coupons',
         name: 'coupons',
@@ -36,7 +36,7 @@ export const SIDE_MENU_ADMIN = {
         menu_childs: [],
     },
     users: {
-        order: 4,
+        order: 5,
         label: t('sidebar.users'),
         route: '/users',
         name: 'users',
