@@ -6,9 +6,7 @@ import router from './router'
 import Antd from 'ant-design-vue'
 import './assets/scss/main.scss'
 import 'ant-design-vue/dist/reset.css'
-import ModalVue from './components/common/Modal/ModalVue.vue'
-import TableData from './components/common/TableData/TableData.vue'
-// import { ImageSingleVue, ModalVue, ModalDelete, TableDataVue } from './components/common'
+import { ModalDelete, ModalVue, TableData } from './components/common'
 
 const app = createApp(App)
 
@@ -19,4 +17,5 @@ app.use(router)
 
 app.component('modal-vue', ModalVue)
 app.component('table-data', TableData)
+app.component('modal-delete', ModalDelete)
 app.mount('#app')

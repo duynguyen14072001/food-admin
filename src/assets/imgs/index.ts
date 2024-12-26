@@ -1,4 +1,3 @@
-import IconTrash from '@/assets/imgs/trash.png'
 import IconNews from '@/assets/imgs/icon-news.png'
 import IconManga from '@/assets/imgs/icon-manga.png'
 import IconMaster from '@/assets/imgs/icon-master.png'
@@ -22,6 +21,7 @@ import IconArrowUp from '@/assets/imgs/icon-arrow-up.png'
 import IconLogout from '@/assets/imgs/icon-logout.png'
 import IconDesktop from '@/assets/imgs/icon-desktop.svg'
 import IconRanking from '@/assets/imgs/icon-ranking.png'
+import IconTrash from '@/assets/imgs/icon-delete.png'
 
 export {
     IconTrash,

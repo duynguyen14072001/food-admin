@@ -4,6 +4,11 @@
     gap: 20px;
 }
 
-.ant-modal-content {
-    padding: 50px 24px 20px !important;
+.modal-category{
+    .ant-modal{
+        .ant-modal-content {
+        
+            padding: 50px 24px 20px !important;
+    }
+}
 }

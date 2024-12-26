@@ -17,18 +17,34 @@ const props = defineProps(['open', 'loading'])
         @cancel="$emit('close')"
     >
         <template #body>
-            <h4 class="title">{{ t('chapter.modal.title') }}</h4>
-            <div class="content">{{ t('chapter.modal.content') }}</div>
+            <h4 class="title-modal">{{ t('modal.delete.title') }}</h4>
+            <div class="content">{{ t('modal.delete.content') }}</div>
             <a-space>
                 <a-button type="link" @click="$emit('close')">
-                    <img :src="Imgs.IconArrowRight2" alt="" /> {{ t('cancel') }}
+                    {{ t('button.cancel') }}
                 </a-button>
                 <a-button class="sbm" :loading="props.loading" @click="$emit('onDelete')">
-                    <img :src="Imgs.IconTrash" alt="" /> {{ t('chapter.modal.btn_delete') }}
+                    <img :src="Imgs.IconTrash" alt="" /> {{ t('modal.btn_delete') }}
                 </a-button>
             </a-space>
         </template>
     </modal-vue>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.title-modal{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.content{
+    text-align: center;
+}
+
+.ant-space {
+    width: 100%;
+    display: flex;
+    margin-top: 15px;
+    justify-content: end;
+}
+</style>
