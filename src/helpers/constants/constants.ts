@@ -34,18 +34,6 @@ export const FORMAT_DAY = (day: any, format = 'YYYY-MM-DD') => {
     return dayjs(new Date(day)).format(format)
 }
 
-export const DAY_LIST: {
-    [key: number]: string
-} = {
-    1: '日',
-    2: '月',
-    3: '火',
-    4: '水',
-    5: '木',
-    6: '金',
-    7: '土',
-}
-
 export const INITIAL_PAGINATE: PaginateParams = {
     page: PAGE_FIRST,
     lastPage: 0,

@@ -52,6 +52,12 @@ export const routes: any = [
                         component: Page.ProductsView,
                         beforeEnter: ifAuthenticated,
                     },
+                    {
+                        path: 'create',
+                        name: 'product-create',
+                        component: Page.ProductsCreateView,
+                        beforeEnter: ifAuthenticated,
+                    },
                 ],
             },
             {

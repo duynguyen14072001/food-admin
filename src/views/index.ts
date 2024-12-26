@@ -4,6 +4,7 @@ export const ForgotPassword = () => import('@/views/Auth/ForgotPasswordView.vue'
 export const ResetPassword = () => import('@/views/Auth/ResetPasswordView.vue')
 export const NotFound = () => import('@/views/NotFound/NotFoundView.vue')
 export const ProductsView = () => import('@/views/Products/ProductsView.vue')
+export const ProductsCreateView = () => import('@/views/Products/ProductsCreateView.vue')
 export const UsersView = () => import('@/views/Users/UsersView.vue')
 export const CouponsView = () => import('@/views/Coupons/CouponsView.vue')
 export const OrdersView = () => import('@/views/Orders/OrdersView.vue')

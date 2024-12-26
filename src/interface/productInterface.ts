@@ -12,3 +12,12 @@ export interface Product {
 export interface ProductResult extends Result {
     data?: Product[]
 }
+
+export interface FormStateProduct {
+    id?: number
+    name: string
+    image_url: string
+    description: string
+    price: number | null
+    category_id: number | string[]
+}

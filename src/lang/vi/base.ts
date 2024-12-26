@@ -11,15 +11,21 @@ export default {
     create_failed: 'Tạo mới thất bại',
     update_failed: 'Cập nhật thất bại',
     delete_failed: 'Xóa thất bại',
+    error: 'Đã xảy ra lỗi',
+    file: {
+        required_jpg_or_png: 'Chỉ có thể tải các tệp JPG hoặc PNG',
+        image_max_size: 'Hình ảnh chỉ hợp lệ cho các tập tin dưới 50MB',
+    },
+    upload: 'Tải lên',
     button: {
         create: 'Tạo mới',
         cancel: 'Hủy',
         submit: 'OK',
     },
     modal: {
-        delete:{
-            title:'Xác nhận',
-            content:'Bạn có chắc chắn muốn xóa không?'
-        }
-    }
+        delete: {
+            title: 'Xác nhận',
+            content: 'Bạn có chắc chắn muốn xóa không?',
+        },
+    },
 }

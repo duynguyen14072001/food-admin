@@ -20,8 +20,14 @@
     }
 }
 
-.sbm{
-    img{
+.sbm {
+    img {
         width: 20px;
     }
+}
+
+.btn-group {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
 }

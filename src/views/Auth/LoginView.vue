@@ -77,13 +77,6 @@ const onFinish = async (values: any) => {
     box-shadow: 0 0 4px #adadad66;
 
     .ant-form {
-        .ant-form-item {
-            &:deep(.ant-row) {
-                .ant-col {
-                    text-align: left;
-                }
-            }
-        }
         .ant-btn {
             width: 100%;
         }

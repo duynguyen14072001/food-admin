@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import { ALL_OPTION, DAY_LIST, PAGE_FIRST } from '..'
+import { ALL_OPTION, PAGE_FIRST } from '..'
 import { formatter } from './helperUI'
 import type { ParamsList } from '@/interface'
 
@@ -11,13 +11,6 @@ export const formatDay = (day: any, format = 'YYYY-MM-DD') => {
 export const formatDayJS = (day: any, format = 'YYYY-MM-DD') => {
     if (!day) return ''
     return dayjs(day, format)
-}
-
-export const formatDateJP = (date: Date | string) => {
-    const day = dayjs(date).format('D')
-    const month = dayjs(date).format('M')
-    const dayOfWeek = formatDay(date, 'd')
-    return month + '月' + day + '日' + ` (${DAY_LIST[parseInt(dayOfWeek) + 1]})`
 }
 
 export const formatMoney = (value: string) => {
@@ -101,3 +94,6 @@ export const mapSortQuery = (query: ParamsList, key: string, dir?: string) => ({
     page: PAGE_FIRST,
     orders: [{ key, dir: dir ? `${dir}ing` : 'descending' }],
 })
+
+export const filterOption = (input: string, option: any) =>
+    (option?.label ?? '').toLocaleLowerCase().includes(input.toLowerCase())

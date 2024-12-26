@@ -4,14 +4,16 @@ import { ACCESS_TOKEN } from '@/helpers'
 import { message } from 'ant-design-vue'
 import { PlusOutlined, LoadingOutlined } from '@ant-design/icons-vue'
 import type { UploadChangeParam } from 'ant-design-vue'
+import { useI18n } from 'vue3-i18n'
 
-function getBase64(img: Blob, callback: (base64Url: string) => void) {
+const getBase64 = (img: Blob, callback: (base64Url: string) => void) => {
     const reader = new FileReader()
     reader.addEventListener('load', () => callback(reader.result as string))
     reader.readAsDataURL(img)
 }
 
 const baseUrl = import.meta.env.VITE_APP_API
+const { t } = useI18n()
 const token = localStorage.getItem(ACCESS_TOKEN)
 const headers = { authorization: `Bearer ${token}` }
 
@@ -46,7 +48,7 @@ const handleChange = (info: UploadChangeParam) => {
     }
     if (info.file.status === 'error') {
         loading.value = false
-        message.error('エラーが発生しました。')
+        message.error(t('error'))
     }
 }
 
@@ -54,12 +56,12 @@ const handleChange = (info: UploadChangeParam) => {
 const beforeUpload = (file: any) => {
     const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png'
     if (!isJpgOrPng) {
-        message.error('アップロードできるのはJPGファイルのみです。')
+        message.error(t('file.required_jpg_or_png'))
     }
     const isLt50M = file.size / 1024 / 1024 < 50
 
     if (!isLt50M) {
-        message.error('画像は50MB以下のファイルのみ有効です')
+        message.error(t('file.image_max_size'))
     }
     return isJpgOrPng && isLt50M
 }
@@ -81,7 +83,7 @@ const beforeUpload = (file: any) => {
         <div v-else class="input-text">
             <loading-outlined v-if="loading" />
             <plus-outlined v-else />
-            <div class="ant-upload-text">アップロード</div>
+            <div class="ant-upload-text">{{ t('upload') }}</div>
         </div>
     </a-upload>
 </template>

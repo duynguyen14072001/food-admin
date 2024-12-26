@@ -4,11 +4,13 @@ import { useProductStore } from '@/stores/product'
 import { onMounted, ref } from 'vue'
 import { useI18n } from 'vue3-i18n'
 import { columns } from './shared'
+import { useRouter } from 'vue-router'
 
 const productsStore = useProductStore()
 const { t } = useI18n()
 const query = ref(INITIAL_QUERY)
 const loading = ref(false)
+const router = useRouter()
 
 onMounted(async () => {
     loading.value = true
@@ -21,7 +23,9 @@ onMounted(async () => {
     <section>
         <div class="title">
             <h1>{{ t('products.title') }}</h1>
-            <a-button>{{ t('button.create') }}</a-button>
+            <a-button @click="router.push({ name: 'product-create' })">{{
+                t('button.create')
+            }}</a-button>
         </div>
         <table-data
             :data="productsStore.getProduct"

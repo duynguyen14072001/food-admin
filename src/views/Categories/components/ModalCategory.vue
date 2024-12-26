@@ -41,7 +41,7 @@ const onFinishFailed = (errorInfo: any) => console.error('Failed:', errorInfo)
 
 const getData = async (id: number) => {
     await categoriesStore.detail(id)
-    console.log('1 :>> ', 1);
+    console.log('1 :>> ', 1)
     if (!categoriesStore.getCategoryDetail) {
         formState.name = ''
         return
@@ -49,11 +49,13 @@ const getData = async (id: number) => {
     formState.name = categoriesStore.getCategoryDetail.name
 }
 
-const onDelete = async ()=>{
+const onDelete = async () => {
     const { status_code } = await categoriesStore.remove(props.id)
     openDelete.value = false
     emit('close')
-    status_code === STATUS_CODE_SUCCESS ? notify(t('delete_success'),'','success') : notify(t('delete_failed'),'','error')
+    status_code === STATUS_CODE_SUCCESS
+        ? notify(t('delete_success'), '', 'success')
+        : notify(t('delete_failed'), '', 'error')
 }
 
 watch(
@@ -90,18 +92,18 @@ onMounted(async () => props.id && (await getData(props.id)))
                     <a-input v-model:value="formState.name" @blur="trim('name', formState)" />
                 </a-form-item>
                 <div class="btn-group">
-                <div class="button-direction">
-                    <a-button html-type="submit" key="submit" type="primary">
-                        {{ t('button.submit') }}
-                    </a-button>
-                    <a-button key="back" @click="$emit('close')">
-                        {{ t('button.cancel') }}
+                    <div class="button-direction">
+                        <a-button html-type="submit" key="submit" type="primary">
+                            {{ t('button.submit') }}
+                        </a-button>
+                        <a-button key="back" @click="$emit('close')">
+                            {{ t('button.cancel') }}
+                        </a-button>
+                    </div>
+                    <a-button class="sbm" v-if="props.id" @click="openDelete = true">
+                        <img :src="Imgs.IconTrash" alt="" />
                     </a-button>
                 </div>
-                <a-button class="sbm" v-if="props.id" @click="openDelete = true">
-                    <img :src="Imgs.IconTrash" alt="" /> {{ t('chapter.modal.btn_delete') }}
-                </a-button>
-            </div>
             </a-form>
         </template>
     </modal-vue>
@@ -109,10 +111,4 @@ onMounted(async () => props.id && (await getData(props.id)))
     <modal-delete :open="openDelete" @close="openDelete = false" @on-delete="onDelete" />
 </template>
 
-<style lang="scss" scoped>
-.btn-group{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-}
-</style>
+<style lang="scss" scoped></style>
