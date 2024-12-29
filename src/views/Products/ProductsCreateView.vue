@@ -4,7 +4,7 @@ import FormBasic from './components/FormBasic.vue'
 
 <template>
     <section class="content-layout">
-        <div class="title">1231231231</div>
+        <div class="title">Create</div>
         <FormBasic />
     </section>
 </template>

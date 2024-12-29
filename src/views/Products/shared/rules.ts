@@ -1,4 +1,4 @@
-import { MAX_STRING } from '@/helpers'
+import { MAX_STRING, validateInteger } from '@/helpers'
 import i18n from '@/lang'
 import type { Rule } from 'ant-design-vue/es/form'
 import { MAX_CATEGORIES } from './constants'
@@ -39,6 +39,19 @@ export const rules: Record<string, Rule[]> = {
                 return Promise.resolve()
             },
             trigger: 'change',
+        },
+    ],
+    image_url: [
+        {
+            required: true,
+            message: t('validation.required', [t('products.form.label.image')]),
+        },
+    ],
+    price: [
+        {
+            validator: async (_: any, value: any) => {
+                return validateInteger(_, value, 'products.form.label.price', 1)
+            },
         },
     ],
 }

@@ -58,6 +58,12 @@ export const routes: any = [
                         component: Page.ProductsCreateView,
                         beforeEnter: ifAuthenticated,
                     },
+                    {
+                        path: ':id',
+                        name: 'product-update',
+                        component: Page.ProductsUpdateView,
+                        beforeEnter: ifAuthenticated,
+                    },
                 ],
             },
             {

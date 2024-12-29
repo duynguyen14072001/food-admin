@@ -19,6 +19,7 @@ export default {
     upload: 'Tải lên',
     button: {
         create: 'Tạo mới',
+        update: 'Cập nhật',
         cancel: 'Hủy',
         submit: 'OK',
     },

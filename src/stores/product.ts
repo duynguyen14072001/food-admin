@@ -21,8 +21,9 @@ export const useProductStore = defineStore('product', () => {
 
     const detail = async (id: number) => {
         try {
-            const { result } = await API.detail(id)
-            return (productDetail.value = result)
+            const { result, status_code } = await API.detail(id)
+            productDetail.value = result
+            return { ...productDetail.value, status_code }
         } catch (error: any) {
             return error
         }
