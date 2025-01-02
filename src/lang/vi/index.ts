@@ -4,6 +4,7 @@ import sidebar from './sidebar'
 import validation from './validation'
 import products from './products'
 import categories from './categories'
+import users from './users'
 
 export const vi = {
     ...base,
@@ -12,4 +13,5 @@ export const vi = {
     sidebar,
     products,
     categories,
+    users,
 }

@@ -27,14 +27,14 @@ export const SIDE_MENU_ADMIN = {
         class: '',
         menu_childs: [],
     },
-    coupons: {
-        order: 4,
-        label: t('sidebar.coupons'),
-        route: '/coupons',
-        name: 'coupons',
-        class: '',
-        menu_childs: [],
-    },
+    // coupons: {
+    //     order: 4,
+    //     label: t('sidebar.coupons'),
+    //     route: '/coupons',
+    //     name: 'coupons',
+    //     class: '',
+    //     menu_childs: [],
+    // },
     users: {
         order: 5,
         label: t('sidebar.users'),
