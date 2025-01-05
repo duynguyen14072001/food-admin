@@ -20,7 +20,7 @@ onMounted(async () => {
 <template>
     <section>
         <div class="title">
-            <h1>{{ t('products.title') }}</h1>
+            <h1>{{ t('users.title') }}</h1>
         </div>
         <table-data
             :data="usersStore.getUsers"

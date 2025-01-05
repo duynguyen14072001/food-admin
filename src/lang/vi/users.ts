@@ -1,5 +1,5 @@
 export default {
-    title: 'Đồ ăn',
+    title: 'Đơn hàng',
     list: {
         column: {
             name: 'Tên',

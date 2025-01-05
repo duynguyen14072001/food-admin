@@ -5,6 +5,7 @@ import validation from './validation'
 import products from './products'
 import categories from './categories'
 import users from './users'
+import order from './order'
 
 export const vi = {
     ...base,
@@ -14,4 +15,5 @@ export const vi = {
     products,
     categories,
     users,
+    order,
 }
