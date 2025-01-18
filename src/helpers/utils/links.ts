@@ -43,4 +43,12 @@ export const SIDE_MENU_ADMIN = {
         class: '',
         menu_childs: [],
     },
+    banners: {
+        order: 6,
+        label: t('sidebar.banners'),
+        route: '/banners',
+        name: 'banners',
+        class: '',
+        menu_childs: [],
+    },
 }

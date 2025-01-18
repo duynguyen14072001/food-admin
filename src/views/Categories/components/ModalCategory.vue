@@ -3,9 +3,9 @@ import { notify, STATUS_CODE_SUCCESS, trim } from '@/helpers'
 import type { FormStateCategory } from '@/interface'
 import { onMounted, reactive, ref, watch, type UnwrapRef } from 'vue'
 import { useI18n } from 'vue3-i18n'
-import { useCategoryStore } from '@/stores/category'
 import { FORM_CATEGORY, ruleCategory } from '../shared'
-import * as Imgs from '@/assets/imgs'
+import { DeleteOutlined } from '@ant-design/icons-vue'
+import { useCategoryStore } from '@/stores'
 
 const { t } = useI18n()
 const props = defineProps(['open', 'loading', 'id'])
@@ -101,7 +101,7 @@ onMounted(async () => props.id && (await getData(props.id)))
                         </a-button>
                     </div>
                     <a-button class="sbm" v-if="props.id" @click="openDelete = true">
-                        <img :src="Imgs.IconTrash" alt="" />
+                        <DeleteOutlined />
                     </a-button>
                 </div>
             </a-form>

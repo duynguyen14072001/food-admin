@@ -6,8 +6,8 @@ import router from './router'
 import Antd from 'ant-design-vue'
 import './assets/scss/main.scss'
 import 'ant-design-vue/dist/reset.css'
-import { ModalDelete, ModalVue, TableData } from './components/common'
-import ImageSingle from './components/common/Image/ImageSingle.vue'
+import { ImageSingle, ModalDelete, ModalVue, TableData } from './components/common'
+import { VueDraggableNext } from 'vue-draggable-next'
 
 const app = createApp(App)
 
@@ -20,4 +20,5 @@ app.component('modal-vue', ModalVue)
 app.component('table-data', TableData)
 app.component('modal-delete', ModalDelete)
 app.component('image-single', ImageSingle)
+app.component('draggable-vue', VueDraggableNext)
 app.mount('#app')

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue3-i18n'
-import * as Imgs from '@/assets/imgs'
+import { DeleteOutlined } from '@ant-design/icons-vue'
 
 const { t } = useI18n()
 const props = defineProps(['open', 'loading'])
@@ -24,7 +24,7 @@ const props = defineProps(['open', 'loading'])
                     {{ t('button.cancel') }}
                 </a-button>
                 <a-button class="sbm" :loading="props.loading" @click="$emit('onDelete')">
-                    <img :src="Imgs.IconTrash" alt="" /> {{ t('modal.btn_delete') }}
+                    <DeleteOutlined /> {{ t('modal.btn_delete') }}
                 </a-button>
             </a-space>
         </template>

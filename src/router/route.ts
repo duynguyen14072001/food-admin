@@ -89,6 +89,17 @@ export const routes: any = [
                 ],
             },
             {
+                path: 'banners',
+                children: [
+                    {
+                        path: '',
+                        name: 'banners-list',
+                        component: Page.BannersViews,
+                        beforeEnter: ifAuthenticated,
+                    },
+                ],
+            },
+            {
                 path: 'coupons',
                 children: [
                     {

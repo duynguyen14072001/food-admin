@@ -6,6 +6,7 @@ import products from './products'
 import categories from './categories'
 import users from './users'
 import order from './order'
+import banners from './banners'
 
 export const vi = {
     ...base,
@@ -16,4 +17,5 @@ export const vi = {
     categories,
     users,
     order,
+    banners,
 }
