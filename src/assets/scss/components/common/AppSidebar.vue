@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import type { MenuProps, ItemType } from 'ant-design-vue'
 import { useRoute, useRouter } from 'vue-router'
-import { reactive, ref, VueElement, onMounted, watchEffect, h } from 'vue'
+import { reactive, ref, VueElement, onMounted, watchEffect } from 'vue'
 import { SIDE_MENU_ADMIN } from '@/helpers'
 import { useAuthStore } from '@/stores'
-import * as Icon from '@/components/icons'
 
 const authStore = useAuthStore()
 const router = useRouter()
@@ -13,18 +12,10 @@ const selectedKeys = ref<string[]>([])
 const items: ItemType[] = reactive([])
 const sidebar = ref()
 
-const getIcon: any = {
-    1: Icon.IconProduct,
-    2: Icon.IconCategory,
-    3: Icon.IconOrder,
-    5: Icon.IconUser,
-    6: Icon.IconBanner,
-}
-
 const handleRoute = async () => {
     for (const key in sidebar.value) {
         const item = sidebar.value[key]
-        items.push(getItem(item.label, String(item.order), () => h(getIcon[+item.order])))
+        items.push(getItem(item.label, String(item.order)))
         if (route.name === item.name) selectedKeys.value.push(String(item.order))
     }
 }

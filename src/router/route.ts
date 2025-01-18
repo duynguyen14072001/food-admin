@@ -20,6 +20,7 @@ const ifNotAuthenticated = (to: any, from: any, next: any) => {
 export const routes: any = [
     {
         path: '/',
+        redirect: '/products',
         children: [
             {
                 path: 'login',
