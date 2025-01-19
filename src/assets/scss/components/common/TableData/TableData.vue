@@ -109,7 +109,7 @@ const rowSelection: any = {
     .tbl-pagination-p {
         position: fixed;
         bottom: 20px;
-        width: calc(100% - 200px);
+        width: calc(100% - 230px);
         display: flex;
         align-items: center;
         justify-content: space-between;
