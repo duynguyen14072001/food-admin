@@ -17,7 +17,7 @@ import { AppHeaderVue, AppSidebarVue } from '.'
     display: flex;
     flex-direction: row;
     .ant-menu {
-        max-width: 200px;
+        max-width: 230px;
     }
 }
 </style>

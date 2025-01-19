@@ -5,7 +5,7 @@ import { useCategoryStore } from '@/stores/category'
 import { onMounted, reactive, ref, type UnwrapRef } from 'vue'
 import { useI18n } from 'vue3-i18n'
 import { FORM_PRODUCT, rules } from '../shared'
-import * as Imgs from '@/assets/imgs'
+import { DeleteOutlined } from '@ant-design/icons-vue'
 import { useProductStore } from '@/stores/product'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -92,7 +92,7 @@ onMounted(
         </a-form-item>
         <div class="btn-group">
             <a-button v-if="params.id" class="sbm" @click="openDelete = true">
-                <img :src="Imgs.IconTrash" alt="" />
+                <DeleteOutlined />
             </a-button>
             <a-button html-type="submit" key="submit" type="primary">
                 {{ t(`button.${params.id ? 'update' : 'create'}`) }}

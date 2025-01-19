@@ -4,6 +4,7 @@ import { useProductStore } from './product'
 import { useCategoryStore } from './category'
 import { useAdminStore } from './admin'
 import { useAuthStore } from './auth'
+import { useBannerStore } from './banner'
 
 export {
     useAuthStore,
@@ -12,4 +13,5 @@ export {
     useProductStore,
     useUserStore,
     useOrderStore,
+    useBannerStore,
 }
