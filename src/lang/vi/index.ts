@@ -7,6 +7,8 @@ import categories from './categories'
 import users from './users'
 import order from './order'
 import banners from './banners'
+import general from './general'
+import faq from './faq'
 
 export const vi = {
     ...base,
@@ -18,4 +20,6 @@ export const vi = {
     users,
     order,
     banners,
+    general,
+    faq,
 }

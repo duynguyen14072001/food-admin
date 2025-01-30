@@ -4,5 +4,5 @@ export default {
     coupons: 'Quản lý khuyến mãi',
     users: 'Danh sách người dùng',
     categories: 'Quản lý danh mục',
-    banners: 'Quản lý banner',
+    general: 'Quản lý chung',
 }

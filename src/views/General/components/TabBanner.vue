@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue'
-import { FORM_BANNER, rules } from './shared'
 import { useI18n } from 'vue3-i18n'
 import type { Banner, FormBannerState } from '@/interface/bannerInterface'
 import { useBannerStore } from '@/stores'
 import { notifyStatus, PAYLOAD_ALL, STATUS_CODE_SUCCESS } from '@/helpers'
 import { DeleteOutlined } from '@ant-design/icons-vue'
+import { FORM_BANNER, rules } from '../shared'
 
 const { t } = useI18n()
 const loading = ref()

@@ -90,12 +90,12 @@ export const routes: any = [
                 ],
             },
             {
-                path: 'banners',
+                path: 'general',
                 children: [
                     {
                         path: '',
-                        name: 'banners-list',
-                        component: Page.BannersViews,
+                        name: 'general',
+                        component: Page.GeneralView,
                         beforeEnter: ifAuthenticated,
                     },
                 ],

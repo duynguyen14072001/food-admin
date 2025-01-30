@@ -5,6 +5,7 @@ import { useCategoryStore } from './category'
 import { useAdminStore } from './admin'
 import { useAuthStore } from './auth'
 import { useBannerStore } from './banner'
+import { useFaqStore } from './faq'
 
 export {
     useAuthStore,
@@ -14,4 +15,5 @@ export {
     useUserStore,
     useOrderStore,
     useBannerStore,
+    useFaqStore,
 }

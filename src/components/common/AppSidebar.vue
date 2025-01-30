@@ -15,10 +15,10 @@ const sidebar = ref()
 
 const getIcon: any = {
     1: Icon.IconProduct,
-    2: Icon.IconCategory,
-    3: Icon.IconOrder,
-    5: Icon.IconUser,
-    6: Icon.IconBanner,
+    2: Icon.IconGeneral,
+    3: Icon.IconCategory,
+    4: Icon.IconOrder,
+    6: Icon.IconUser,
 }
 
 const handleRoute = async () => {

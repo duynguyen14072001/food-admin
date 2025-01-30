@@ -22,6 +22,7 @@ export default {
         update: 'Cập nhật',
         cancel: 'Hủy',
         submit: 'OK',
+        save: 'Lưu',
     },
     modal: {
         delete: {

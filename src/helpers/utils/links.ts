@@ -11,8 +11,16 @@ export const SIDE_MENU_ADMIN = {
         class: '',
         menu_childs: [],
     },
-    categories: {
+    general: {
         order: 2,
+        label: t('sidebar.general'),
+        route: '/general',
+        name: 'general',
+        class: '',
+        menu_childs: [],
+    },
+    categories: {
+        order: 3,
         label: t('sidebar.categories'),
         route: '/categories',
         name: 'categories',
@@ -20,7 +28,7 @@ export const SIDE_MENU_ADMIN = {
         menu_childs: [],
     },
     orders: {
-        order: 3,
+        order: 4,
         label: t('sidebar.orders'),
         route: '/orders',
         name: 'orders',
@@ -36,18 +44,10 @@ export const SIDE_MENU_ADMIN = {
     //     menu_childs: [],
     // },
     users: {
-        order: 5,
+        order: 6,
         label: t('sidebar.users'),
         route: '/users',
         name: 'users',
-        class: '',
-        menu_childs: [],
-    },
-    banners: {
-        order: 6,
-        label: t('sidebar.banners'),
-        route: '/banners',
-        name: 'banners',
         class: '',
         menu_childs: [],
     },
