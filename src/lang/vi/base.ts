@@ -23,6 +23,7 @@ export default {
         cancel: 'Hủy',
         submit: 'OK',
         save: 'Lưu',
+        add: 'Thêm',
     },
     modal: {
         delete: {

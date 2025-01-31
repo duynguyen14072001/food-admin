@@ -9,6 +9,12 @@
     font-family: 'Noto Sans JP';
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
 body {
     min-height: 100vh;
     color: var(--vt-c-gray-2);

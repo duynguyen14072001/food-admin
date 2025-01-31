@@ -5,6 +5,7 @@ import { useFaqStore } from '@/stores'
 import { DeleteOutlined } from '@ant-design/icons-vue'
 import { onMounted, reactive, ref } from 'vue'
 import { useI18n } from 'vue3-i18n'
+import { FORM_FAQ, rulesFaq } from '../shared'
 
 const { t } = useI18n()
 const faqStore = useFaqStore()
@@ -48,9 +49,11 @@ const onDelete = () => {
     open.value = false
 }
 
+const handleCreate = () => formState.faqs.push({ ...FORM_FAQ })
+
 onMounted(async () => {
     loadingData.value = true
-    await faqStore.list({ PAYLOAD_ALL, orders: [{ key: 'number', dir: 'asc' }] })
+    await faqStore.list({ ...PAYLOAD_ALL, orders: [{ key: 'number', dir: 'asc' }] })
     faqStore.getFaqs.data?.length &&
         (formState.faqs = faqStore.getFaqs.data?.map((item: Faq) => item))
     loadingData.value = false
@@ -73,20 +76,30 @@ onMounted(async () => {
             <draggable-vue tag="transition-group" :animation="200" :list="formState.faqs">
                 <div class="item" v-for="(item, index) in formState.faqs" :key="index">
                     <div class="form">
-                        <a-form-item :label="t('faq.form.input_label.question')">
-                            <a-input v-model:value="item.question"></a-input>
+                        <a-form-item
+                            :name="['faqs', index, 'question']"
+                            :rules="rulesFaq.question"
+                            :label="t('faq.form.input_label.question')"
+                        >
+                            <a-input v-model:value="item.question" />
                         </a-form-item>
-                        <a-form-item :label="t('faq.form.input_label.answer')">
-                            <a-input v-model:value="item.answer"></a-input>
+                        <a-form-item
+                            :name="['faqs', index, 'answer']"
+                            :rules="rulesFaq.answer"
+                            :label="t('faq.form.input_label.answer')"
+                        >
+                            <a-input v-model:value="item.answer" />
                         </a-form-item>
                     </div>
-
                     <DeleteOutlined
                         style="color: #26b7bc; font-size: 20px"
                         @click="openDelete(index)"
                     />
                 </div>
             </draggable-vue>
+            <a-button @click="handleCreate">
+                {{ t('faq.form.btn_create') }}
+            </a-button>
         </a-form>
     </a-spin>
     <modal-delete :open="open" @close="open = false" @on-delete="onDelete" />

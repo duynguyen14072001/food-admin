@@ -57,7 +57,7 @@ const openDelete = (index: number) => {
 
 onMounted(async () => {
     loadingData.value = true
-    await bannerStore.list({ PAYLOAD_ALL, orders: [{ key: 'number', dir: 'asc' }] })
+    await bannerStore.list({ ...PAYLOAD_ALL, orders: [{ key: 'number', dir: 'asc' }] })
     bannerStore.getBanners.data?.length &&
         (formState.banners = bannerStore.getBanners.data?.map((item: Banner) => item))
     loadingData.value = false

@@ -18,11 +18,3 @@ export const create = (payload: Record<string, any>) => {
         data: payload,
     })
 }
-
-export const remove = (id: number) => {
-    const url = `/faqs/${id}`
-    return request<ResponseResult, ResponseResult>({
-        url,
-        method: 'DELETE',
-    })
-}

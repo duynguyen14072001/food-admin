@@ -4,5 +4,6 @@ export default {
             question: 'Câu hỏi',
             answer: 'Trả lời',
         },
+        btn_create: 'Thêm',
     },
 }

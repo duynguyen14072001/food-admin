@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import TabBanner from './components/TabBanner.vue'
 import { useI18n } from 'vue3-i18n'
+import TabBanner from './components/TabBanner.vue'
 import TabFaq from './components/TabFaq.vue'
+import TabRecommend from './components/TabRecommend.vue'
 
 const activeKey = ref('1')
 const { t } = useI18n()
@@ -17,7 +18,7 @@ const { t } = useI18n()
             <TabFaq />
         </a-tab-pane>
         <a-tab-pane key="3" :tab="t('general.tab.product_recommend')">
-            Content of Tab Pane 3
+            <TabRecommend />
         </a-tab-pane>
     </a-tabs>
 </template>

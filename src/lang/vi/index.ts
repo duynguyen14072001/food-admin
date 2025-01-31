@@ -9,6 +9,7 @@ import order from './order'
 import banners from './banners'
 import general from './general'
 import faq from './faq'
+import recommend from './recommend'
 
 export const vi = {
     ...base,
@@ -22,4 +23,5 @@ export const vi = {
     banners,
     general,
     faq,
+    recommend,
 }
