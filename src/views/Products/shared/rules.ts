@@ -47,11 +47,46 @@ export const rules: Record<string, Rule[]> = {
             message: t('validation.required', [t('products.form.label.image')]),
         },
     ],
+    image_urls: [
+        {
+            required: true,
+            message: t('validation.required', [t('products.form.label.images')]),
+        },
+    ],
+    slug: [
+        {
+            required: true,
+            message: t('validation.required', [t('products.form.label.slug')]),
+        },
+        {
+            type: 'string',
+            message: t('validation.string', {
+                0: t('products.form.label.slug'),
+            }),
+        },
+        {
+            max: MAX_STRING,
+            message: t('validation.max.string', {
+                0: t('products.form.label.slug'),
+                1: MAX_STRING,
+            }),
+        },
+    ],
     price: [
+        {
+            required: true,
+            message: t('validation.required', [t('products.form.label.price')]),
+        },
         {
             validator: async (_: any, value: any) => {
                 return validateInteger(_, value, 'products.form.label.price', 1)
             },
+        },
+    ],
+    show_flag: [
+        {
+            required: true,
+            message: t('validation.required', [t('manga.create.input_labels.show_flag')]),
         },
     ],
 }

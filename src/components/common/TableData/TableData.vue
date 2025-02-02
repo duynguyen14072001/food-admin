@@ -49,10 +49,6 @@ const onChange = (pageNumber: number) => {
     emit('changePage', pageNumber)
 }
 
-const handleCreate = () => {
-    router.push(props.createLink)
-}
-
 const rowSelection: any = {
     // hideSelectAll: true,
     onChange: (selectedRowKeys: string[]) => {

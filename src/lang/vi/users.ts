@@ -1,5 +1,5 @@
 export default {
-    title: 'Đơn hàng',
+    title: 'Người dùng',
     list: {
         column: {
             name: 'Tên',

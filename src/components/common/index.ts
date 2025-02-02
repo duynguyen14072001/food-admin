@@ -6,6 +6,7 @@ import TableData from './TableData/TableData.vue'
 import ModalDelete from './Modal/ModalDelete.vue'
 import ModalVue from './Modal/ModalVue.vue'
 import ImageSingle from './Image/ImageSingle.vue'
+import ImageMultiple from './Image/ImageMultiple.vue'
 
 export {
     AppFooterVue,
@@ -15,5 +16,6 @@ export {
     ModalDelete,
     ModalVue,
     ImageSingle,
+    ImageMultiple,
     ProductItem,
 }

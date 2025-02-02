@@ -16,7 +16,8 @@ export default {
         required_jpg_or_png: 'Chỉ có thể tải các tệp JPG hoặc PNG',
         image_max_size: 'Hình ảnh chỉ hợp lệ cho các tập tin dưới 50MB',
     },
-    upload: 'Tải lên',
+    upload: 'Tải lên hoặc kéo thả',
+    upload_or_drag: 'Tải lên hoặc kéo thả (có thể nhiều file)',
     button: {
         create: 'Tạo mới',
         update: 'Cập nhật',

@@ -1,104 +1,109 @@
 <script lang="ts" setup>
-import { PlusOutlined } from '@ant-design/icons-vue'
-import { ref } from 'vue'
-import type { UploadChangeParam, UploadProps } from 'ant-design-vue'
-import { message } from 'ant-design-vue'
-import { ACCESS_TOKEN } from '@/helpers'
+import { PlusOutlined, LoadingOutlined } from '@ant-design/icons-vue'
+import { message, type UploadChangeParam } from 'ant-design-vue'
+import { ref, watch } from 'vue'
+import { useI18n } from 'vue3-i18n'
+import * as API from '@/api/upload'
+import { STATUS_CODE_SUCCESS } from '@/helpers'
 
-function getBase64(file: File) {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader()
-        reader.readAsDataURL(file)
-        reader.onload = () => resolve(reader.result)
-        reader.onerror = (error) => reject(error)
-    })
+const props = defineProps(['type', 'listImage'])
+const emits = defineEmits(['changeImg'])
+const loading = ref()
+const fileArray = ref([] as any)
+const { t } = useI18n()
+
+const beforeUpload = async (file: any, fileList: any) => {
+    loading.value = true
+    if (file.uid === fileList[fileList.length - 1].uid) {
+        const isValidate = fileList.some((item: any) => {
+            const allowedTypes = ['image/png', 'image/jpeg'] // Allowed MIME types
+            const invalidFiles = allowedTypes.includes(item.type)
+            if (!invalidFiles) {
+                message.error(t('file.required_jpg_or_png'))
+                loading.value = false
+                return false
+            }
+            const isLt50M = file.size / 1024 / 1024 < 50
+            if (!isLt50M) {
+                message.error(t('file.image_max_size'))
+                loading.value = false
+                return false
+            }
+            return invalidFiles && isLt50M
+        })
+
+        if (isValidate) {
+            const formData = new FormData()
+            for (let i = 0; i < fileList.length; i++) {
+                const file = fileList[i]
+                formData.append('files', file.originFileObj || file)
+            }
+            const { result, status_code } = (await API.upload(formData, props.type)) as any
+            status_code === STATUS_CODE_SUCCESS
+                ? (fileArray.value = [...fileArray.value, ...result.map((item: any) => item)]) &&
+                  emits('changeImg', fileArray.value)
+                : message.error(t('failed'))
+        }
+    }
+    return (loading.value = false)
 }
 
-const previewVisible = ref(false)
-const previewImage = ref('')
-const previewTitle = ref('')
-
-const baseUrl = import.meta.env.VITE_APP_API
-const token = localStorage.getItem(ACCESS_TOKEN)
-const headers = { authorization: `Bearer ${token}` }
-
-const props = defineProps(['type', 'imgValue'])
-const emit = defineEmits(['changeImg'])
-
-const fileList = ref<UploadProps['fileList']>(props.imgValue)
-
-const handleCancel = () => {
-    previewVisible.value = false
-    previewTitle.value = ''
-}
-// const handlePreview = async (file: UploadProps['fileList'][number]) => {
-const handlePreview = async (file: any) => {
-    if (!file.url && !file.preview) {
-        file.preview = (await getBase64(file.originFileObj)) as string
-    }
-    previewImage.value = file.url || file.preview
-    previewVisible.value = true
-    previewTitle.value = file.name || file.url.substring(file.url.lastIndexOf('/') + 1)
-}
-
-const handleChange = (info: UploadChangeParam) => {
-    if (info.file.status === 'uploading') {
-        return
-    }
-    if (info.file.status === 'done') {
-        emit('changeImg', fileList)
-    }
-    if (info.file.status === 'error') {
-        message.error('upload error')
-    }
-}
-
-// const beforeUpload = (file: UploadProps['fileList'][number]) => {
-const beforeUpload = (file: any) => {
-    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png'
-    if (!isJpgOrPng) {
-        message.error('You can only upload JPG file!')
-    }
-    const isLt2M = file.size / 1024 / 1024 < 2
-    if (!isLt2M) {
-        message.error('Image must smaller than 2MB!')
-    }
-    return isJpgOrPng && isLt2M
-}
+watch(
+    () => props.listImage,
+    () => (fileArray.value = [...props.listImage])
+)
 </script>
 
 <template>
     <div class="clearfix">
-        <a-upload
-            name="avatar"
-            v-model:file-list="fileList"
-            :action="`${baseUrl}/upload?type=${props.type}`"
-            list-type="picture-card"
-            @preview="handlePreview"
+        <a-upload-dragger
+            name="file"
+            :multiple="true"
+            :custom-request="() => {}"
+            :show-upload-list="false"
             :before-upload="beforeUpload"
-            @change="handleChange"
-            :headers="headers"
+            class="uploader"
         >
-            <div v-if="fileList && fileList.length < 8">
-                <plus-outlined />
-                <div style="margin-top: 8px">Upload</div>
+            <div class="list-image">
+                <img v-for="(item, index) in fileArray" :src="item" :key="index" alt="" />
+                <div class="box-add">
+                    <loading-outlined v-if="loading" />
+                    <plus-outlined v-else />
+                    <div class="ant-upload-text">{{ t('upload_or_drag') }}</div>
+                </div>
             </div>
-        </a-upload>
-        <a-modal :open="previewVisible" :title="previewTitle" :footer="null" @cancel="handleCancel">
-            <img alt="example" style="width: 100%" :src="previewImage" />
-        </a-modal>
+        </a-upload-dragger>
     </div>
 </template>
 
-<style scoped>
-/* you can make up upload button and sample style by using stylesheets */
-.ant-upload-select-picture-card i {
-    font-size: 32px;
-    color: var(--vt-c-gray-6);
+<style lang="scss" scoped>
+.uploader {
+    &:deep(.ant-upload) {
+        width: fit-content;
+        padding: 2px;
+        display: flex;
+        gap: 10px;
+    }
 }
 
-.ant-upload-select-picture-card .ant-upload-text {
-    margin-top: 8px;
-    color: var(--vt-c-gray-v5);
+.list-image {
+    display: flex;
+    gap: 10px;
+    img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .box-add {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 150px;
+        height: 150px;
+        border-radius: 2px;
+        border: 1px dashed var(--vt-c-gray-v6);
+    }
 }
 </style>

@@ -25,12 +25,12 @@ const handleCreate = (data: Product[]) => {
     formState.recommends = formState.recommends.concat(recommend)
 }
 
-const onSubmitDelete = ()=>{
+const onSubmitDelete = () => {
     formState.recommends.splice(index.value, 1)
     openDelete.value = false
 }
 
-const onDelete = (i:number) =>{
+const onDelete = (i: number) => {
     index.value = i
     openDelete.value = true
 }

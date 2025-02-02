@@ -1,5 +1,5 @@
 .ant-layout {
-    height: 100vh;
+    min-height: 100vh;
 
     .ant-layout-sider {
         background-color: var(--color-background-sidebar);
@@ -72,68 +72,6 @@
                     }
                 }
             }
-
-            .profile {
-                border-top: 1px solid var(--vt-c-white-mute);
-                cursor: pointer;
-                padding: 12px;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                img {
-                    width: 20px;
-                }
-                .text {
-                    font-size: 12px;
-                    font-weight: 500;
-                    line-height: 17.38px;
-                    color: var(--vt-c-main);
-                    margin-left: 10px;
-                }
-
-                .icon-arrow {
-                    width: 8px;
-                    margin-left: 35px;
-                }
-            }
-
-            .menu-profile {
-                cursor: pointer;
-                width: calc(100% - 20px);
-                position: absolute;
-                bottom: 55px;
-                left: 10px;
-                background-color: var(--vt-c-white);
-                box-shadow: var(--vt-box-shadow);
-                font-size: 12px;
-                font-weight: 500;
-                line-height: 17.38px;
-                animation: growDown 300ms ease-in-out forwards;
-                @keyframes growDown {
-                    0% {
-                        transform: scaleY(0);
-                    }
-                    80% {
-                        transform: scaleY(1.1);
-                    }
-                    100% {
-                        transform: scaleY(1);
-                    }
-                }
-
-                .change-pass {
-                    border-bottom: 1px solid var(--vt-c-gray-1);
-                    color: var(--vt-c-gray-2);
-                    padding: 8px 14px 11px;
-                }
-                .logout {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    color: var(--vt-c-main);
-                    padding: 8px 13px 12px 10px;
-                }
-            }
         }
     }
 
@@ -194,20 +132,6 @@
                     font-weight: 700;
                     line-height: 41px;
                 }
-
-                .username {
-                    font-family: 'IBM Plex Sans';
-                    font-size: 19px;
-                    font-weight: 500;
-                    line-height: 25px;
-                    margin-right: 12px;
-                }
-
-                .avatar {
-                    width: 40px;
-                    height: 40px;
-                    border-radius: 50%;
-                }
             }
         }
 
@@ -221,6 +145,7 @@
 
 .ant-layout-content {
     margin: 40px 0 0;
+    padding-bottom: 40px;
     background-color: var(--vt-c-white);
 }
 

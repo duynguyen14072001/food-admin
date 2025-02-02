@@ -5,6 +5,7 @@ import { useProductStore } from '@/stores'
 import { useDebounceFn } from '@vueuse/core'
 import { ref, watchEffect } from 'vue'
 import { useI18n } from 'vue3-i18n'
+import { FLAG_SHOW } from '../shared'
 
 const { t } = useI18n()
 const productStore = useProductStore()
@@ -48,6 +49,10 @@ watchEffect(async () => {
                 key: 'not_ids',
                 data: props.productIds,
             },
+            {
+                key: 'show_flag',
+                data: FLAG_SHOW,
+            },
         ],
     }
     await productStore.list(query.value)
@@ -81,9 +86,9 @@ watchEffect(async () => {
                 @change="onChange"
                 class="tbl-pagination"
             />
-            <a-button :disabled="!selectedItems.length" @click="emits('submit', selectedItems)">{{
-                t('button.add')
-            }}</a-button>
+            <a-button :disabled="!selectedItems.length" @click="emits('submit', selectedItems)">
+                {{ t('button.add') }}
+            </a-button>
         </div>
     </a-spin>
 </template>

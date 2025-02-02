@@ -11,6 +11,9 @@ export default {
         label: {
             name: 'Tên đồ ăn',
             image: 'Ảnh',
+            images: 'Ảnh sản phẩm',
+            slug: 'Slug',
+            show_flag: 'Trạng thái',
             description: 'Mô tả',
             price: 'Giá',
             category: 'Thể loại',

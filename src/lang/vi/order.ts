@@ -1,5 +1,5 @@
 export default {
-    title: 'Người dùng',
+    title: 'Đơn hàng',
     list: {
         column: {
             status: 'Trạng thái',

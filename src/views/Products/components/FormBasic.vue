@@ -1,11 +1,18 @@
 <script lang="ts" setup>
-import { filterOption, getOptions, notify, PAYLOAD_ALL, STATUS_CODE_SUCCESS } from '@/helpers'
+import {
+    filterOption,
+    getObjOptions,
+    getOptions,
+    notify,
+    PAYLOAD_ALL,
+    STATUS_CODE_SUCCESS,
+} from '@/helpers'
 import type { FormStateProduct } from '@/interface'
 import { useCategoryStore } from '@/stores/category'
-import { onMounted, reactive, ref, type UnwrapRef } from 'vue'
+import { h, onMounted, reactive, ref, type UnwrapRef } from 'vue'
 import { useI18n } from 'vue3-i18n'
-import { FORM_PRODUCT, rules } from '../shared'
-import { DeleteOutlined } from '@ant-design/icons-vue'
+import { FLAG_SHOW, FORM_PRODUCT, OPTIONS_SHOW_FLAG, rules } from '../shared'
+import { DeleteOutlined, EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons-vue'
 import { useProductStore } from '@/stores/product'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -37,12 +44,17 @@ const onFinish = async () => {
 
 const handleImg = (e: any) => (formState.image_url = e.value.at(-1).response.result)
 
+const handleImgs = (fileArray: any) => (formState.image_urls = [...fileArray])
+
 const getProduct = () => {
     if (props.data) {
         formState.id = props.data.id
         formState.name = props.data.name
         formState.image_url = props.data.image_url
         formState.price = props.data.price
+        formState.slug = props.data.slug
+        formState.show_flag = props.data.show_flag
+        formState.image_urls = props.data.image_urls
         formState.description = props.data.description
         formState.category_id = props.data.category_id
     }
@@ -67,12 +79,14 @@ onMounted(
         <a-form-item name="name" :label="t('products.form.label.name')">
             <a-input v-model:value="formState.name" />
         </a-form-item>
+        <a-form-item name="slug" :label="t('products.form.label.slug')">
+            <a-input v-model:value="formState.slug" />
+        </a-form-item>
         <a-form-item name="category_id" :label="t('products.form.label.category')">
             <a-select
                 v-model:value="formState.category_id"
                 :options="getOptions(categoryStore.getCategories.data)"
                 :filterOption="filterOption"
-                class="w-600 select-keyword"
                 mode="multiple"
             />
         </a-form-item>
@@ -80,8 +94,14 @@ onMounted(
             <image-single
                 type="products"
                 :img-value="formState.image_url"
-                class="w-100"
                 @change-img="handleImg"
+            />
+        </a-form-item>
+        <a-form-item name="image_urls" :label="t('products.form.label.images')">
+            <image-multiple
+                type="products"
+                @change-img="handleImgs"
+                :list-image="formState.image_urls"
             />
         </a-form-item>
         <a-form-item name="price" :label="t('products.form.label.price')">
@@ -89,6 +109,17 @@ onMounted(
         </a-form-item>
         <a-form-item name="description" :label="t('products.form.label.description')">
             <a-textarea v-model:value="formState.description" />
+        </a-form-item>
+        <a-form-item name="show_flag" :label="t('products.form.label.show_flag')">
+            <a-select
+                v-model:value="formState.show_flag"
+                :options="getObjOptions(OPTIONS_SHOW_FLAG, false)"
+                :suffixIcon="
+                    h(formState.show_flag === FLAG_SHOW ? EyeOutlined : EyeInvisibleOutlined, {
+                        style: { color: 'var(--vt-c-main)' },
+                    })
+                "
+            />
         </a-form-item>
         <div class="btn-group">
             <a-button v-if="params.id" class="sbm" @click="openDelete = true">

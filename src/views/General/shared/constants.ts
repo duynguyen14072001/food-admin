@@ -1,3 +1,5 @@
+export const FLAG_SHOW = 1
+
 export const FORM_BANNER = {
     image_url: '',
     number: 0,

@@ -72,7 +72,7 @@ const beforeUpload = (file: any) => {
         v-model:file-list="fileList"
         name="file"
         list-type="picture-card"
-        class="avatar-uploader"
+        class="uploader"
         :show-upload-list="false"
         :action="`${baseUrl}/uploads?type=${props.type}`"
         :before-upload="beforeUpload"
@@ -89,36 +89,14 @@ const beforeUpload = (file: any) => {
 </template>
 
 <style scoped lang="scss">
-.avatar-uploader {
-    &:deep(> .ant-upload) {
-        width: 100% !important;
-        height: 100% !important;
-        padding: 4px;
-        border-radius: var(--vt-br-btn);
-        margin-inline-end: 0 !important;
-        margin-bottom: 0 !important;
-
-        img {
-            width: 100%;
-        }
-    }
-}
-
-.ant-upload-select-picture-card i {
-    font-size: 32px;
-    color: var(--vt-c-gray-v6);
-}
-
-.ant-upload-select-picture-card .ant-upload-text {
-    margin-top: 8px;
-    color: var(--vt-c-gray-v5);
-}
-
-.ant-upload-wrapper {
-    &:deep(.ant-upload-select) {
-        span.ant-upload {
-            overflow: hidden !important;
-        }
+.uploader {
+    &:deep(.ant-upload) {
+        padding: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px !important;
+        height: 150px !important;
     }
 }
 </style>
