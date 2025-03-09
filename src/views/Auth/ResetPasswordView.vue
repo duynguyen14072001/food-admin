@@ -79,8 +79,7 @@ const trim = (field: 'new_password' | 'conf_password') => {
                 </a-form-item>
                 <div class="box-button">
                     <a class="a-redirect" href="/login">
-                        <img :src="Imgs.IconArrowRight2" alt="" />
-                        {{ t('login') }}
+                        {{ t('back_to_login') }}
                     </a>
                     <a-button type="primary" html-type="submit" :loading="loading">
                         {{ t('auth.reset_password.btn_sbm') }}
@@ -91,4 +90,25 @@ const trim = (field: 'new_password' | 'conf_password') => {
     </section>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.auth-password {
+    .content {
+        max-width: 600px;
+        width: 100%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 30px 65px 34px;
+        background-color: var(--vt-c-white);
+        box-shadow: 0 0 4px #adadad66;
+        .ant-form {
+            .box-button {
+                display: flex;
+                justify-content: end;
+                gap: 10px;
+            }
+        }
+    }
+}
+</style>

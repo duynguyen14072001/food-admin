@@ -36,14 +36,16 @@ onMounted(async () => {
             <h1>{{ t('categories.title') }}</h1>
             <a-button @click="handleCreate">{{ t('button.create') }}</a-button>
         </div>
-        <table-data
-            :data="categoriesStore.getCategories"
-            :columns="columns"
-            :loading="loading"
-            :hasCreate="false"
-            :showSelection="false"
-            @cellClick="cellClick"
-        />
+        <div class="container">
+            <table-data
+                :data="categoriesStore.getCategories"
+                :columns="columns"
+                :loading="loading"
+                :hasCreate="false"
+                :showSelection="false"
+                @cellClick="cellClick"
+            />
+        </div>
     </section>
 
     <ModalCategory :open="open" :id="id" @close="open = false" />

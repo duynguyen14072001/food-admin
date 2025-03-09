@@ -5,5 +5,8 @@ export default {
     users: 'Danh sách người dùng',
     categories: 'Quản lý danh mục',
     general: 'Quản lý chung',
-    ranking: 'Ranking',
+    ranking: 'Thống kê',
+    setting: 'Cài đặt',
+    logout: 'Đăng xuất',
+    change_password: 'Đổi mật khẩu',
 }

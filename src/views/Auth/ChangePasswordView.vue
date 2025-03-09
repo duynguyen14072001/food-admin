@@ -41,7 +41,7 @@ const resetForm = () => {
 </script>
 
 <template>
-    <section className="full-page auth-password">
+    <section className="auth-password">
         <div className="content">
             <h4 className="form-title">{{ t('auth.change_password.title') }}</h4>
             <a-form
@@ -91,11 +91,10 @@ const resetForm = () => {
                 </a-form-item>
                 <div class="box-button">
                     <a-button class="a-redirect" type="link" @click="resetForm">
-                        <img :src="Imgs.IconArrowRight2" alt="" />
-                        {{ t('cancel') }}
+                        {{ t('button.cancel') }}
                     </a-button>
                     <a-button type="primary" html-type="submit">
-                        {{ t('save') }}
+                        {{ t('button.submit') }}
                     </a-button>
                 </div>
             </a-form>
@@ -103,4 +102,25 @@ const resetForm = () => {
     </section>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.auth-password {
+    .content {
+        max-width: 600px;
+        width: 100%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 30px 65px 34px;
+        background-color: var(--vt-c-white);
+        box-shadow: 0 0 4px #adadad66;
+        .ant-form {
+            .box-button {
+                display: flex;
+                justify-content: end;
+                gap: 10px;
+            }
+        }
+    }
+}
+</style>

@@ -61,10 +61,14 @@ watchEffect(async () => {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 
     .item {
         cursor: pointer;
     }
+}
+
+.ant-pagination {
+    padding-bottom: 20px;
 }
 </style>

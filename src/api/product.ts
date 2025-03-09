@@ -10,6 +10,15 @@ export const list = (payload: Record<string, any>) => {
     })
 }
 
+export const listRanking = (payload: Record<string, any>) => {
+    const url = '/products/ranking'
+    return request<ResponseList, ResponseList>({
+        url,
+        method: 'GET',
+        params: payload,
+    })
+}
+
 export const detail = (id: number) => {
     const url = `/products/${id}`
     return request<ResponseResult, ResponseResult>({

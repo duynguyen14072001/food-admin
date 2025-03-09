@@ -6,7 +6,6 @@ import { AppHeaderVue, AppSidebarVue } from '.'
     <a-layout>
         <AppSidebarVue />
         <a-layout-content>
-            <AppHeaderVue />
             <router-view />
         </a-layout-content>
     </a-layout>

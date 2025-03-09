@@ -41,8 +41,6 @@ const trim = (field: 'mail_address') => {
             <h4 className="form-title">{{ t('auth.forgot_password.title') }}</h4>
             <a-form
                 name="basic"
-                :label-col="{ span: 6 }"
-                :wrapper-col="{ span: 18 }"
                 autocomplete="off"
                 :model="formState"
                 :colon="false"
@@ -63,8 +61,7 @@ const trim = (field: 'mail_address') => {
 
                 <div class="box-button">
                     <a class="a-redirect" href="/login">
-                        <img :src="Imgs.IconArrowRight2" alt="" />
-                        {{ t('login') }}
+                        {{ t('back_to_login') }}
                     </a>
                     <a-button type="primary" html-type="submit" :loading="loading">
                         {{ t('auth.forgot_password.btn_sbm') }}
@@ -75,4 +72,25 @@ const trim = (field: 'mail_address') => {
     </section>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.auth-password {
+    .content {
+        max-width: 600px;
+        width: 100%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 30px 65px 34px;
+        background-color: var(--vt-c-white);
+        box-shadow: 0 0 4px #adadad66;
+        .ant-form {
+            .box-button {
+                display: flex;
+                justify-content: end;
+                gap: 10px;
+            }
+        }
+    }
+}
+</style>

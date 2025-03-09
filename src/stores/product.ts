@@ -19,6 +19,16 @@ export const useProductStore = defineStore('product', () => {
         }
     }
 
+    const listRanking = async (payload: Record<string, any>) => {
+        try {
+            const data = await API.listRanking(payload)
+            query.value = payload
+            return (products.value = data.result)
+        } catch (error: any) {
+            return error
+        }
+    }
+
     const detail = async (id: number) => {
         try {
             const { result, status_code } = await API.detail(id)
@@ -68,6 +78,7 @@ export const useProductStore = defineStore('product', () => {
         list,
         detail,
         update,
+        listRanking,
         create,
         remove,
     }

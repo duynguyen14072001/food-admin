@@ -29,13 +29,15 @@ watchEffect(async () => {
         <div class="title">
             <h1>{{ t('users.title') }}</h1>
         </div>
-        <table-data
-            :data="usersStore.getUsers"
-            :columns="columns"
-            :loading="loading"
-            :hasCreate="false"
-            :showSelection="false"
-            @change-page="handleChangePage"
-        />
+        <div class="container">
+            <table-data
+                :data="usersStore.getUsers"
+                :columns="columns"
+                :loading="loading"
+                :hasCreate="false"
+                :showSelection="false"
+                @change-page="handleChangePage"
+            />
+        </div>
     </section>
 </template>

@@ -54,13 +54,15 @@ watchEffect(async () => {
             <h1>{{ t('order.title') }}</h1>
             <a-range-picker v-model:value="selectedDate" @change="handleChangeDate" />
         </div>
-        <table-data
-            :data="orderStore.getOrders"
-            :columns="columns"
-            :loading="loading"
-            :hasCreate="false"
-            :showSelection="false"
-            @change-page="handleChangePage"
-        />
+        <div class="container">
+            <table-data
+                :data="orderStore.getOrders"
+                :columns="columns"
+                :loading="loading"
+                :hasCreate="false"
+                :showSelection="false"
+                @change-page="handleChangePage"
+            />
+        </div>
     </section>
 </template>

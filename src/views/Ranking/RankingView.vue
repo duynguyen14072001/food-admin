@@ -1,13 +1,23 @@
 <script lang="ts" setup>
-import { formatDate, INITIAL_QUERY } from '@/helpers'
-import { useOrderStore } from '@/stores'
+import { formatDate, INITIAL_QUERY, PAGE_FIRST } from '@/helpers'
 import { ref, watchEffect } from 'vue'
 import { useI18n } from 'vue3-i18n'
 import { columns } from './shared'
+import { useProductStore } from '@/stores'
+import type { SortProps } from '@/interface'
 
-const orderStore = useOrderStore()
+const productStore = useProductStore()
 const { t } = useI18n()
-const query = ref(INITIAL_QUERY)
+const sortType = ref('descending')
+const query = ref({
+    ...INITIAL_QUERY,
+    orders: [
+        {
+            key: 'review_count',
+            dir: 'desc',
+        },
+    ],
+})
 const loading = ref(false)
 const selectedDate = ref()
 
@@ -41,9 +51,20 @@ const handleChangeDate = () => {
     loading.value = false
 }
 
+const sort = async ({ field: key, order: dir }: SortProps) => {
+    sortType.value = dir ? `${dir}ing` : 'descending'
+    const orderDir = dir?.replace('end', '') || 'desc'
+
+    query.value = {
+        ...query.value,
+        page: PAGE_FIRST,
+        orders: [{ key, dir: orderDir }],
+    }
+}
+
 watchEffect(async () => {
     loading.value = true
-    await orderStore.list(query.value)
+    await productStore.listRanking(query.value)
     loading.value = false
 })
 </script>
@@ -54,13 +75,17 @@ watchEffect(async () => {
             <h1>{{ t('ranking.title') }}</h1>
             <a-range-picker v-model:value="selectedDate" @change="handleChangeDate" />
         </div>
-        <table-data
-            :data="orderStore.getOrders"
-            :columns="columns"
-            :loading="loading"
-            :hasCreate="false"
-            :showSelection="false"
-            @change-page="handleChangePage"
-        />
+        <div class="container">
+            <table-data
+                :data="productStore.getProduct"
+                :columns="columns"
+                :loading="loading"
+                :hasCreate="false"
+                :showSelection="false"
+                :sort-type="sortType"
+                @sort="sort"
+                @change-page="handleChangePage"
+            />
+        </div>
     </section>
 </template>

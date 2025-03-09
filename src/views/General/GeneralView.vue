@@ -10,17 +10,22 @@ const { t } = useI18n()
 </script>
 
 <template>
-    <a-tabs v-model:activeKey="activeKey">
-        <a-tab-pane key="1" :tab="t('general.tab.banner')">
-            <TabBanner />
-        </a-tab-pane>
-        <a-tab-pane key="2" :tab="t('general.tab.faq')">
-            <TabFaq />
-        </a-tab-pane>
-        <a-tab-pane key="3" :tab="t('general.tab.product_recommend')">
-            <TabRecommend />
-        </a-tab-pane>
-    </a-tabs>
+    <section>
+        <div class="title">{{ t('general.title') }}</div>
+        <div class="container">
+            <a-tabs v-model:activeKey="activeKey">
+                <a-tab-pane key="1" :tab="t('general.tab.banner')">
+                    <TabBanner />
+                </a-tab-pane>
+                <a-tab-pane key="2" :tab="t('general.tab.faq')">
+                    <TabFaq />
+                </a-tab-pane>
+                <a-tab-pane key="3" :tab="t('general.tab.product_recommend')">
+                    <TabRecommend />
+                </a-tab-pane>
+            </a-tabs>
+        </div>
+    </section>
 </template>
 
 <style lang="scss" scoped></style>
