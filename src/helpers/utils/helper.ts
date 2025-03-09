@@ -8,6 +8,11 @@ export const formatDay = (day: any, format = 'YYYY-MM-DD') => {
     return dayjs(new Date(day)).format(format)
 }
 
+export const formatDate = (day: any, format = 'YYYY-MM-DD') => {
+    if (!day) return ''
+    return dayjs(day).format(format)
+}
+
 export const formatDayJS = (day: any, format = 'YYYY-MM-DD') => {
     if (!day) return ''
     return dayjs(day, format)

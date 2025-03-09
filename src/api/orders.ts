@@ -10,6 +10,24 @@ export const list = (payload: Record<string, any>) => {
     })
 }
 
+export const updateStatus = (payload: Record<string, any>, id: number) => {
+    const url = `/orders/status/${id}`
+    return request<ResponseResult, ResponseResult>({
+        url,
+        method: 'PATCH',
+        data: payload,
+    })
+}
+
+export const updateStatusPayment = (payload: Record<string, any>, id: number) => {
+    const url = `/orders/status-payment/${id}`
+    return request<ResponseResult, ResponseResult>({
+        url,
+        method: 'PATCH',
+        data: payload,
+    })
+}
+
 export const detail = (id: number) => {
     const url = `/orders/${id}`
     return request<ResponseResult, ResponseResult>({

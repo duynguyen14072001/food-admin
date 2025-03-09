@@ -5,4 +5,5 @@ export default {
     users: 'Danh sách người dùng',
     categories: 'Quản lý danh mục',
     general: 'Quản lý chung',
+    ranking: 'Ranking',
 }

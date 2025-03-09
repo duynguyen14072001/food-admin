@@ -1,14 +1,11 @@
 import type { ColumnTable } from '@/interface'
 import i18n from '@/lang'
+import ButtonStatus from '../components/ButtonStatus.vue'
+import ButtonPaymentStatus from '../components/ButtonPaymentStatus.vue'
 
 const { t } = i18n
 
 export const columns: ColumnTable[] = [
-    {
-        title: t('order.list.column.status'),
-        key: 'status',
-        dataIndex: 'status',
-    },
     {
         title: t('order.list.column.user_name'),
         key: 'user_name',
@@ -18,5 +15,22 @@ export const columns: ColumnTable[] = [
         title: t('order.list.column.shipping_address'),
         key: 'shipping_address',
         dataIndex: 'shipping_address',
+    },
+    {
+        title: t('order.list.column.payment_status'),
+        key: 'payment_status',
+        customRender: ({ record }: any) => <ButtonPaymentStatus record={record} />,
+    },
+    {
+        title: t('order.list.column.status'),
+        key: 'status',
+        customRender: ({ record }: any) => <ButtonStatus record={record} />,
+    },
+    {
+        title: t('order.list.column.payment_method'),
+        key: 'payment_method',
+        customRender: ({ record }: any) => (
+            <span>{t(`order.list.column.payment_method_value_${record.payment_method}`)}</span>
+        ),
     },
 ]

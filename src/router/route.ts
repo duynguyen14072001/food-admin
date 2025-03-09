@@ -101,12 +101,12 @@ export const routes: any = [
                 ],
             },
             {
-                path: 'coupons',
+                path: 'ranking',
                 children: [
                     {
                         path: '',
-                        name: 'coupons-list',
-                        component: Page.CouponsView,
+                        name: 'ranking',
+                        component: Page.RankingView,
                         beforeEnter: ifAuthenticated,
                     },
                 ],

@@ -5,7 +5,7 @@ export interface ParamsOrders {
 
 export interface ParamsFilters {
     key: string | null
-    data: string | number | number[]
+    data: string | number | number[] | string[]
 }
 
 export interface ParamsList {

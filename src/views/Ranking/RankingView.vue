@@ -51,7 +51,7 @@ watchEffect(async () => {
 <template>
     <section>
         <div class="title">
-            <h1>{{ t('order.title') }}</h1>
+            <h1>{{ t('ranking.title') }}</h1>
             <a-range-picker v-model:value="selectedDate" @change="handleChangeDate" />
         </div>
         <table-data

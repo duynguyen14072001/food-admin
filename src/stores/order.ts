@@ -28,12 +28,34 @@ export const useOrderStore = defineStore('order', () => {
         }
     }
 
+    const updateStatus = async (payload: Record<string, any>, id: number) => {
+        try {
+            const result = await API.updateStatus(payload, id)
+            await list(query.value)
+            return result
+        } catch (error: any) {
+            return error
+        }
+    }
+
+    const updateStatusPayment = async (payload: Record<string, any>, id: number) => {
+        try {
+            const result = await API.updateStatusPayment(payload, id)
+            await list(query.value)
+            return result
+        } catch (error: any) {
+            return error
+        }
+    }
+
     const getOrders = computed(() => orders.value)
     const getOrderDetail = computed(() => orderDetail.value)
 
     return {
         getOrders,
         getOrderDetail,
+        updateStatus,
+        updateStatusPayment,
         list,
         detail,
     }

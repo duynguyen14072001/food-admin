@@ -18,7 +18,6 @@ import { useRoute, useRouter } from 'vue-router'
 
 const { t } = useI18n()
 const router = useRouter()
-const openDelete = ref()
 const categoryStore = useCategoryStore()
 const productStore = useProductStore()
 const props = defineProps(['data'])
@@ -26,8 +25,6 @@ const { params } = useRoute()
 const formState: UnwrapRef<FormStateProduct> = reactive({
     ...FORM_PRODUCT,
 })
-
-const onDelete = () => {}
 
 const onFinishFailed = (errorInfo: any) => console.error('Failed:', errorInfo)
 
@@ -122,15 +119,11 @@ onMounted(
             />
         </a-form-item>
         <div class="btn-group">
-            <a-button v-if="params.id" class="sbm" @click="openDelete = true">
-                <DeleteOutlined />
-            </a-button>
             <a-button html-type="submit" key="submit" type="primary">
                 {{ t(`button.${params.id ? 'update' : 'create'}`) }}
             </a-button>
         </div>
     </a-form>
-    <modal-delete :open="openDelete" @close="openDelete = false" @on-delete="onDelete" />
 </template>
 
 <style lang="scss" scoped>
