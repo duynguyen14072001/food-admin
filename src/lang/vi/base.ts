@@ -5,6 +5,7 @@ export default {
     back_to_login: 'Quay lại đăng nhập',
     mail_address: 'Địa chỉ email',
     password: 'Mật khẩu',
+    unit_price: '₫',
     login_success: 'Đăng nhập thành công',
     create_success: 'Tạo mới thành công',
     update_success: 'Cập nhật thành công',

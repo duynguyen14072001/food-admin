@@ -9,6 +9,8 @@ export default {
             payment_method: 'Phương thức thanh toán',
             payment_method_value_1: 'Thanh toán khi giao hàng',
             payment_method_value_2: 'Thanh toán online',
+            item_count: 'Số lượng item',
+            total_price: 'Tổng tiền',
         },
     },
 }

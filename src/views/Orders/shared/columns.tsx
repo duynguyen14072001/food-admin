@@ -17,6 +17,22 @@ export const columns: ColumnTable[] = [
         dataIndex: 'shipping_address',
     },
     {
+        title: t('order.list.column.item_count'),
+        key: 'item_count',
+        dataIndex: 'item_count',
+    },
+    {
+        title: t('order.list.column.total_price'),
+        key: 'total_price',
+        dataIndex: 'total_price',
+        customRender: ({ record }: any) => (
+            <div>
+                {record.total_price}
+                {t('unit_price')}
+            </div>
+        ),
+    },
+    {
         title: t('order.list.column.payment_status'),
         key: 'payment_status',
         customRender: ({ record }: any) => <ButtonPaymentStatus record={record} />,
