@@ -15,13 +15,13 @@ const formRef = ref()
 const formState = reactive<ChangePasswordDto>(INITIAL_CHANGE_PASSWORD)
 
 const onFinish = async (values: any) => {
-    const { status_code, message } = await authStore.changePassword({ ...values })
+    const { status_code } = await authStore.changePassword({ ...values })
     if (status_code !== STATUS_CODE_SUCCESS) {
         return notify(t('invalid'), '', 'error')
     }
 
-    notify(message, t('success'), 'success')
-    router.push({ name: 'manga-list' })
+    notify(t('auth.change_password.success'), '', 'success')
+    router.push({ name: 'products-list' })
 }
 
 const onFinishFailed = (errorInfo: any) => {

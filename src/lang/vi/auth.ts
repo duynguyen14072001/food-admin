@@ -12,6 +12,7 @@ export default {
             new_password: 'Mật khẩu mới',
             conf_password: 'Xác nhận mật khẩu',
         },
+        success: 'Đổi mật khẩu thành công',
     },
     forgot_password: {
         title: 'Reset mật khẩu',

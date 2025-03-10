@@ -12,6 +12,7 @@ export default {
     create_failed: 'Tạo mới thất bại',
     update_failed: 'Cập nhật thất bại',
     delete_failed: 'Xóa thất bại',
+    invalid: 'Thông tin không chính xác',
     error: 'Đã xảy ra lỗi',
     file: {
         required_jpg_or_png: 'Chỉ có thể tải các tệp JPG hoặc PNG',
