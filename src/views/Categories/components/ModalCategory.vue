@@ -41,7 +41,6 @@ const onFinishFailed = (errorInfo: any) => console.error('Failed:', errorInfo)
 
 const getData = async (id: number) => {
     await categoriesStore.detail(id)
-    console.log('1 :>> ', 1)
     if (!categoriesStore.getCategoryDetail) {
         formState.name = ''
         return

@@ -38,9 +38,9 @@ export const useAdminStore = defineStore('admin', () => {
         }
     }
 
-    const update = async (payload: Record<string, any>, id: number) => {
+    const updateRole = async (payload: Record<string, any>, id: number) => {
         try {
-            const result = await API.update(payload, id)
+            const result = await API.updateRole(payload, id)
             await list(query.value)
             return result
         } catch (error: any) {
@@ -66,7 +66,7 @@ export const useAdminStore = defineStore('admin', () => {
         getAdmin,
         list,
         detail,
-        update,
+        updateRole,
         create,
         remove,
     }

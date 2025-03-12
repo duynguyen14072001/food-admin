@@ -51,4 +51,12 @@ export const SIDE_MENU_ADMIN = {
         class: '',
         menu_childs: [],
     },
+    account: {
+        order: 7,
+        label: t('sidebar.account'),
+        route: '/account',
+        name: 'account',
+        class: '',
+        menu_childs: [],
+    },
 }

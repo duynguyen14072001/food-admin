@@ -11,6 +11,7 @@ import general from './general'
 import faq from './faq'
 import recommend from './recommend'
 import ranking from './ranking'
+import account from './account'
 
 export const vi = {
     ...base,
@@ -26,4 +27,5 @@ export const vi = {
     faq,
     recommend,
     ranking,
+    account,
 }

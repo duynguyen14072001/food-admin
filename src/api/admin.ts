@@ -2,7 +2,7 @@ import request from '@/api/config'
 import type { ResponseResult, ResponseList } from '@/interface'
 
 export const list = (payload: Record<string, any>) => {
-    const url = '/admins'
+    const url = ''
     return request<ResponseList, ResponseList>({
         url,
         method: 'GET',
@@ -11,7 +11,7 @@ export const list = (payload: Record<string, any>) => {
 }
 
 export const detail = (id: number) => {
-    const url = `/admins/${id}`
+    const url = `/${id}`
     return request<ResponseResult, ResponseResult>({
         url,
         method: 'GET',
@@ -19,7 +19,7 @@ export const detail = (id: number) => {
 }
 
 export const create = (payload: Record<string, any>) => {
-    const url = '/admins'
+    const url = ''
     return request<ResponseResult, ResponseResult>({
         url,
         method: 'POST',
@@ -27,8 +27,8 @@ export const create = (payload: Record<string, any>) => {
     })
 }
 
-export const update = (payload: Record<string, any>, id: number) => {
-    const url = `/admins/${id}`
+export const updateRole = (payload: Record<string, any>, id: number) => {
+    const url = `/update-role/${id}`
     return request<ResponseResult, ResponseResult>({
         url,
         method: 'PATCH',
@@ -37,7 +37,7 @@ export const update = (payload: Record<string, any>, id: number) => {
 }
 
 export const remove = (id: number) => {
-    const url = `/admins/${id}`
+    const url = `/${id}`
     return request<ResponseResult, ResponseResult>({
         url,
         method: 'DELETE',

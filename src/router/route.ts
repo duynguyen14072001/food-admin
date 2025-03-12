@@ -90,6 +90,17 @@ export const routes: any = [
                 ],
             },
             {
+                path: 'account',
+                children: [
+                    {
+                        path: '',
+                        name: 'account-list',
+                        component: Page.AccountView,
+                        beforeEnter: ifAuthenticated,
+                    },
+                ],
+            },
+            {
                 path: 'general',
                 children: [
                     {

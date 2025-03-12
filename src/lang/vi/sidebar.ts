@@ -8,5 +8,6 @@ export default {
     ranking: 'Thống kê',
     setting: 'Cài đặt',
     logout: 'Đăng xuất',
+    account: 'Quản lý tài khoản',
     change_password: 'Đổi mật khẩu',
 }

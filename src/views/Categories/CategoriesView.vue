@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { INITIAL_QUERY } from '@/helpers'
 import { useCategoryStore } from '@/stores/category'
-import { onMounted, ref } from 'vue'
+import { ref, watchEffect } from 'vue'
 import { useI18n } from 'vue3-i18n'
 import { columns } from './shared'
 import ModalCategory from './components/ModalCategory.vue'
@@ -23,7 +23,14 @@ const cellClick = (e: Record<string, any>, b: Record<string, any>) => {
     id.value = b.id
 }
 
-onMounted(async () => {
+const handleChangePage = (page: number) => {
+    query.value = {
+        ...query.value,
+        page,
+    }
+}
+
+watchEffect(async () => {
     loading.value = true
     await categoriesStore.list(query.value)
     loading.value = false
@@ -44,6 +51,7 @@ onMounted(async () => {
                 :hasCreate="false"
                 :showSelection="false"
                 @cellClick="cellClick"
+                @change-page="handleChangePage"
             />
         </div>
     </section>

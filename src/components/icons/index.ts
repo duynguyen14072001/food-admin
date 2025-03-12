@@ -4,5 +4,6 @@ import IconProduct from './IconProduct.vue'
 import IconOrder from './IconOrder.vue'
 import IconGeneral from './IconGeneral.vue'
 import IconRanking from './IconRanking.vue'
+import IconAccount from './IconAccount.vue'
 
-export { IconUser, IconCategory, IconProduct, IconOrder, IconGeneral, IconRanking }
+export { IconUser, IconCategory, IconProduct, IconOrder, IconGeneral, IconRanking, IconAccount }

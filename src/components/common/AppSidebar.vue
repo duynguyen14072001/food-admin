@@ -23,6 +23,7 @@ const getIcon: any = {
     4: Icon.IconOrder,
     5: Icon.IconUser,
     6: Icon.IconRanking,
+    7: Icon.IconAccount,
 }
 
 const handleRoute = async () => {
