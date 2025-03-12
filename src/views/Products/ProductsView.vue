@@ -34,7 +34,7 @@ watchEffect(async () => {
                     {{ t('button.create') }}
                 </a-button>
             </div>
-            <div class="container">
+            <div class="container p-4">
                 <product-item
                     class="item"
                     v-for="(item, index) in productsStore.getProduct.data"
@@ -66,6 +66,10 @@ watchEffect(async () => {
     .item {
         cursor: pointer;
     }
+}
+
+.p-4 {
+    padding: 20px;
 }
 
 .ant-pagination {

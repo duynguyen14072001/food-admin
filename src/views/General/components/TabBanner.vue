@@ -81,6 +81,7 @@ onMounted(async () => {
                             :rules="rules.image_url"
                         >
                             <image-single
+                                class="h-200"
                                 type="banners"
                                 :img-value="banner.image_url"
                                 @change-img="(e: any) => handleImage(e, index)"

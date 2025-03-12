@@ -91,6 +91,7 @@ onMounted(
         </a-form-item>
         <a-form-item name="image_url" :label="t('products.form.label.image')">
             <image-single
+                class="w-160 h-160"
                 type="products"
                 :img-value="formState.image_url"
                 @change-img="handleImg"
@@ -131,6 +132,6 @@ onMounted(
 
 <style lang="scss" scoped>
 .form-product {
-    padding: 0 12px;
+    padding: 20px 12px;
 }
 </style>

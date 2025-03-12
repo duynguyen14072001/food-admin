@@ -95,8 +95,8 @@ const beforeUpload = (file: any) => {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 150px !important;
-        height: 150px !important;
+        width: 100% !important;
+        height: 100% !important;
     }
 }
 </style>

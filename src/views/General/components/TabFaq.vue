@@ -62,45 +62,47 @@ onMounted(async () => {
 
 <template>
     <a-spin tip="Loading..." :spinning="loadingData">
-        <a-form
-            :model="formState"
-            ref="formRef"
-            :label-col="{ span: 3 }"
-            :wrapper-col="{ span: 13 }"
-            @finish="onFinish"
-            @finishFailed="onFinishFailed"
-        >
-            <a-button html-type="submit" key="submit" type="primary" :loading="loading">
-                {{ t('button.save') }}
-            </a-button>
-            <draggable-vue tag="transition-group" :animation="200" :list="formState.faqs">
-                <div class="item" v-for="(item, index) in formState.faqs" :key="index">
-                    <div class="form">
-                        <a-form-item
-                            :name="['faqs', index, 'question']"
-                            :rules="rulesFaq.question"
-                            :label="t('faq.form.input_label.question')"
-                        >
-                            <a-input v-model:value="item.question" />
-                        </a-form-item>
-                        <a-form-item
-                            :name="['faqs', index, 'answer']"
-                            :rules="rulesFaq.answer"
-                            :label="t('faq.form.input_label.answer')"
-                        >
-                            <a-input v-model:value="item.answer" />
-                        </a-form-item>
+        <div class="main">
+            <a-form
+                :model="formState"
+                ref="formRef"
+                :label-col="{ span: 3 }"
+                :wrapper-col="{ span: 13 }"
+                @finish="onFinish"
+                @finishFailed="onFinishFailed"
+            >
+                <a-button html-type="submit" key="submit" type="primary" :loading="loading">
+                    {{ t('button.save') }}
+                </a-button>
+                <draggable-vue tag="transition-group" :animation="200" :list="formState.faqs">
+                    <div class="item" v-for="(item, index) in formState.faqs" :key="index">
+                        <div class="form">
+                            <a-form-item
+                                :name="['faqs', index, 'question']"
+                                :rules="rulesFaq.question"
+                                :label="t('faq.form.input_label.question')"
+                            >
+                                <a-input v-model:value="item.question" />
+                            </a-form-item>
+                            <a-form-item
+                                :name="['faqs', index, 'answer']"
+                                :rules="rulesFaq.answer"
+                                :label="t('faq.form.input_label.answer')"
+                            >
+                                <a-input v-model:value="item.answer" />
+                            </a-form-item>
+                        </div>
+                        <DeleteOutlined
+                            style="color: #26b7bc; font-size: 20px"
+                            @click="openDelete(index)"
+                        />
                     </div>
-                    <DeleteOutlined
-                        style="color: #26b7bc; font-size: 20px"
-                        @click="openDelete(index)"
-                    />
-                </div>
-            </draggable-vue>
-            <a-button @click="handleCreate">
-                {{ t('faq.form.btn_create') }}
-            </a-button>
-        </a-form>
+                </draggable-vue>
+                <a-button @click="handleCreate">
+                    {{ t('faq.form.btn_create') }}
+                </a-button>
+            </a-form>
+        </div>
     </a-spin>
     <modal-delete :open="open" @close="open = false" @on-delete="onDelete" />
 </template>
@@ -120,6 +122,14 @@ onMounted(async () => {
         row-gap: 20px;
         &:deep(.ant-form-item) {
             margin-bottom: 0;
+        }
+    }
+}
+
+.main {
+    &:deep(.ant-form) {
+        .ant-btn-primary {
+            margin: 0 0 20px auto;
         }
     }
 }

@@ -80,7 +80,7 @@ const rowSelection: any = {
                 @change="onChange"
                 class="tbl-pagination"
             />
-            <div class="tbl-total">{{ data.total }}trên tổng số{{ data.data?.length }}</div>
+            <div class="tbl-total">{{ data.total }} trên tổng số {{ data.data?.length }}</div>
         </div>
     </section>
 </template>

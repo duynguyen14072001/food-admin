@@ -28,4 +28,8 @@ const { t } = useI18n()
     </section>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.container {
+    padding: 10px;
+}
+</style>

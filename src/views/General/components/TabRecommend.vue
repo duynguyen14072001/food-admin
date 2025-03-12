@@ -69,33 +69,35 @@ watch(
 
 <template>
     <a-spin tip="Loading..." :spinning="loading">
-        <a-button
-            html-type="submit"
-            key="submit"
-            type="primary"
-            :loading="loadingButton"
-            @click="onSubmit"
-        >
-            {{ t('button.save') }}
-        </a-button>
-        <div class="main">
-            <draggable-vue
-                tag="transition-group"
-                :animation="200"
-                :list="formState.recommends"
-                :filter="'.box-add'"
+        <div class="container">
+            <a-button
+                html-type="submit"
+                key="submit"
+                type="primary"
+                :loading="loadingButton"
+                @click="onSubmit"
             >
-                <product-item
-                    v-for="(item, index) in formState.recommends"
-                    :item="item.product"
-                    :key="index"
-                    :has-delete="true"
-                    @on-delete="onDelete(index)"
-                />
-                <div class="box-add" @click="open = true">
-                    <PlusOutlined style="font-size: 30px; color: #ffffff" />
-                </div>
-            </draggable-vue>
+                {{ t('button.save') }}
+            </a-button>
+            <div class="main">
+                <draggable-vue
+                    tag="transition-group"
+                    :animation="200"
+                    :list="formState.recommends"
+                    :filter="'.box-add'"
+                >
+                    <product-item
+                        v-for="(item, index) in formState.recommends"
+                        :item="item.product"
+                        :key="index"
+                        :has-delete="true"
+                        @on-delete="onDelete(index)"
+                    />
+                    <div class="box-add" @click="open = true">
+                        <PlusOutlined style="font-size: 30px; color: #ffffff" />
+                    </div>
+                </draggable-vue>
+            </div>
         </div>
     </a-spin>
 
@@ -134,6 +136,12 @@ watch(
         align-items: center;
         justify-content: center;
         background-color: var(--vt-c-main);
+    }
+}
+
+.container {
+    &:deep(.ant-btn-primary) {
+        margin: 0 0 20px auto;
     }
 }
 </style>
