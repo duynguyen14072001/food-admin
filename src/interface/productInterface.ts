@@ -23,6 +23,6 @@ export interface FormStateProduct {
     description: string
     price: number | null
     category_id: number | string[]
-    image_urls: number | string[]
+    image_urls: string[]
     show_flag: number
 }

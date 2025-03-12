@@ -43,6 +43,8 @@ const handleImg = (e: any) => (formState.image_url = e.value.at(-1).response.res
 
 const handleImgs = (fileArray: any) => (formState.image_urls = [...fileArray])
 
+const handleRemoveImages = (index: number) => formState.image_urls.splice(index, 1)
+
 const getProduct = () => {
     if (props.data) {
         formState.id = props.data.id
@@ -97,8 +99,9 @@ onMounted(
         <a-form-item name="image_urls" :label="t('products.form.label.images')">
             <image-multiple
                 type="products"
-                @change-img="handleImgs"
                 :list-image="formState.image_urls"
+                @change-img="handleImgs"
+                @remove-image="handleRemoveImages"
             />
         </a-form-item>
         <a-form-item name="price" :label="t('products.form.label.price')">
