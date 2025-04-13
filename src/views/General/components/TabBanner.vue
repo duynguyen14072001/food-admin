@@ -116,7 +116,7 @@ onMounted(async () => {
 
         .ant-form-item {
             &:deep(img) {
-                height: 200px;
+                height: 190px;
             }
 
             &:deep(.ant-form-item-control-input-content) {

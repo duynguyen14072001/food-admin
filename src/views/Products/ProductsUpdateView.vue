@@ -4,10 +4,12 @@ import FormBasic from './components/FormBasic.vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useProductStore } from '@/stores/product'
 import { STATUS_CODE_SUCCESS } from '@/helpers'
+import { useI18n } from 'vue3-i18n'
 const { params } = useRoute()
 const router = useRouter()
 const productStore = useProductStore()
 const data = ref()
+const { t } = useI18n()
 
 onMounted(async () => {
     const product = await productStore.detail(+params.id)
@@ -21,7 +23,7 @@ onMounted(async () => {
 
 <template>
     <section class="content-layout">
-        <div class="title">Update</div>
+        <div class="title">{{ t('products.update.title') }}</div>
         <FormBasic v-if="data" :data="data" />
     </section>
 </template>

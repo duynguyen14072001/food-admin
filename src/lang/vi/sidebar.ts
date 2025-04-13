@@ -1,5 +1,5 @@
 export default {
-    products: 'Quản lý đồ ăn',
+    products: 'Quản lý sản phẩm',
     orders: 'Quản lý đơn hàng',
     coupons: 'Quản lý khuyến mãi',
     users: 'Danh sách người dùng',

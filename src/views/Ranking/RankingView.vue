@@ -73,7 +73,11 @@ watchEffect(async () => {
     <section>
         <div class="title">
             <h1>{{ t('ranking.title') }}</h1>
-            <a-range-picker v-model:value="selectedDate" @change="handleChangeDate" />
+            <a-range-picker
+                v-model:value="selectedDate"
+                @change="handleChangeDate"
+                :placeholder="[t('ranking.list.start_date'), t('ranking.list.end_date')]"
+            />
         </div>
         <div class="container">
             <table-data

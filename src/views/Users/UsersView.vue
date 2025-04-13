@@ -4,6 +4,7 @@ import { useUserStore } from '@/stores'
 import { ref, watchEffect } from 'vue'
 import { useI18n } from 'vue3-i18n'
 import { columns } from './shared'
+import { useDebounceFn } from '@vueuse/core'
 
 const usersStore = useUserStore()
 const { t } = useI18n()
@@ -17,6 +18,13 @@ const handleChangePage = (page: number) => {
     }
 }
 
+const handleSearch = useDebounceFn((e: any) => {
+    query.value = {
+        ...query.value,
+        search: e.target.value,
+    }
+}, 1000)
+
 watchEffect(async () => {
     loading.value = true
     await usersStore.list(query.value)
@@ -28,6 +36,11 @@ watchEffect(async () => {
     <section>
         <div class="title">
             <h1>{{ t('users.title') }}</h1>
+            <a-input-search
+                :placeholder="t('users.list.placeholder_search')"
+                style="width: 400px"
+                @change="handleSearch"
+            />
         </div>
         <div class="container">
             <table-data

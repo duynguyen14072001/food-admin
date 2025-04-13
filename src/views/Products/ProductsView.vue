@@ -4,6 +4,7 @@ import { useProductStore } from '@/stores/product'
 import { ref, watchEffect } from 'vue'
 import { useI18n } from 'vue3-i18n'
 import { useRouter } from 'vue-router'
+import { useDebounceFn } from '@vueuse/core'
 
 const productsStore = useProductStore()
 const { t } = useI18n()
@@ -18,6 +19,13 @@ const onChange = (page: number) => {
     }
 }
 
+const handleSearch = useDebounceFn((e: any) => {
+    query.value = {
+        ...query.value,
+        search: e.target.value,
+    }
+}, 1000)
+
 watchEffect(async () => {
     loading.value = true
     await productsStore.list(query.value)
@@ -29,10 +37,19 @@ watchEffect(async () => {
     <section>
         <a-spin tip="Loading..." :spinning="loading">
             <div class="title">
-                <h1>{{ t('products.title') }}</h1>
-                <a-button @click="router.push({ name: 'product-create' })">
-                    {{ t('button.create') }}
-                </a-button>
+                <div class="heading">
+                    <h1>{{ t('products.title') }}</h1>
+                    <a-button @click="router.push({ name: 'product-create' })">
+                        {{ t('button.create') }}
+                    </a-button>
+                </div>
+                <div class="input-search">
+                    <a-input-search
+                        :placeholder="t('products.list.placeholder_search')"
+                        style="width: 400px"
+                        @change="handleSearch"
+                    />
+                </div>
             </div>
             <div class="container p-4">
                 <product-item
@@ -65,6 +82,17 @@ watchEffect(async () => {
 
     .item {
         cursor: pointer;
+    }
+}
+
+.title {
+    display: block;
+    padding: 12px;
+    .heading {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 }
 

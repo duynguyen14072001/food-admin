@@ -1,5 +1,5 @@
 export default {
-    title: 'Danh mục',
+    title: 'Danh sách danh mục',
     list: {
         column: {
             name: 'Tên danh mục',

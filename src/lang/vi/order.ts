@@ -1,5 +1,5 @@
 export default {
-    title: 'Đơn hàng',
+    title: 'Danh sách đơn hàng',
     list: {
         column: {
             status: 'Trạng thái',
@@ -12,5 +12,7 @@ export default {
             item_count: 'Số lượng item',
             total_price: 'Tổng tiền',
         },
+        start_date: 'Ngày bắt đầu',
+        end_date: 'Ngày kết thúc',
     },
 }

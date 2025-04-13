@@ -11,7 +11,7 @@ const { t } = useI18n()
 
 <template>
     <section>
-        <div class="title">{{ t('general.title') }}</div>
+        <div class="title">{{ t(`general.title_${activeKey}`) }}</div>
         <div class="container">
             <a-tabs v-model:activeKey="activeKey">
                 <a-tab-pane key="1" :tab="t('general.tab.banner')">

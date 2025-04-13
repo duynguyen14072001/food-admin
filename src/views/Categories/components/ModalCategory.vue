@@ -30,7 +30,6 @@ const handleSubmit = async () => {
             }
             emit('close')
             notify(t(`${!props.id ? 'create' : 'update'}_success`), '', 'success')
-            formRef.value.resetFields()
         })
         .catch((error: any) => {
             console.log('error', error)
