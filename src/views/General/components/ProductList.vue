@@ -79,6 +79,7 @@ watchEffect(async () => {
         </div>
         <div class="footer">
             <a-pagination
+                v-if="productStore.getProduct.data?.length"
                 :total="productStore.getProduct.total"
                 :page-size="+productStore.getProduct.perPage"
                 :current="Number(productStore.getProduct.page)"
