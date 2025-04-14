@@ -31,6 +31,7 @@ const emits = defineEmits(['onDelete'])
     }
     .image {
         height: 200px;
+        width: 100%;
     }
     .info {
         width: 100%;

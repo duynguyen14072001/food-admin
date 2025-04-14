@@ -97,6 +97,11 @@ const beforeUpload = (file: any) => {
         align-items: center;
         width: 100% !important;
         height: 100% !important;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
     }
 }
 </style>
