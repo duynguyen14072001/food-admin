@@ -6,6 +6,7 @@ export default {
     mail_address: 'Địa chỉ email',
     password: 'Mật khẩu',
     unit_price: '₫',
+    email_exists: 'Địa chỉ email đã tồn tại',
     login_success: 'Đăng nhập thành công',
     create_success: 'Tạo mới thành công',
     update_success: 'Cập nhật thành công',

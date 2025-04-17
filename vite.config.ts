@@ -13,7 +13,6 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
-    VueDevTools(),
   ],
   resolve: {
     alias: {

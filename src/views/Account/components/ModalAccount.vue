@@ -35,10 +35,13 @@ const handleSubmit = async () => {
     await formRef.value
         .validate()
         .then(async () => {
-            const { status_code } = !props.id
+            const { status_code, message } = !props.id
                 ? await adminStore.create(formState)
                 : await adminStore.updateRole({ role: formState.role }, props.id)
             if (status_code !== STATUS_CODE_SUCCESS) {
+                if (message === 'Email exits') {
+                    return notify(t('email_exists'), '', 'error')
+                }
                 return notify(t(`${!props.id ? 'create' : 'update'}_failed`), '', 'error')
             }
             emit('close')
