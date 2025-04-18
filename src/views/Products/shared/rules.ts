@@ -77,16 +77,17 @@ export const rules: Record<string, Rule[]> = {
             required: true,
             message: t('validation.required', [t('products.form.label.price')]),
         },
-        {
-            validator: async (_: any, value: any) => {
-                return validateInteger(_, value, 'products.form.label.price', 1)
-            },
-        },
     ],
     show_flag: [
         {
             required: true,
-            message: t('validation.required', [t('manga.create.input_labels.show_flag')]),
+            message: t('validation.required', [t('products.form.label.show_flag')]),
+        },
+    ],
+    description: [
+        {
+            required: true,
+            message: t('validation.required', [t('products.form.label.description')]),
         },
     ],
 }
