@@ -29,14 +29,17 @@ const formState: UnwrapRef<FormStateProduct> = reactive({
 const onFinishFailed = (errorInfo: any) => console.error('Failed:', errorInfo)
 
 const onFinish = async () => {
-    const { status_code } = params.id
+    const { status_code, message } = params.id
         ? await productStore.update(formState, +params.id)
         : await productStore.create(formState)
     if (status_code === STATUS_CODE_SUCCESS) {
         notify(t(`${params.id ? 'update' : 'create'}_success`), '', 'success')
         return router.push({ name: 'products-list' })
     }
-    return notify(t(`${params.id ? 'update' : 'create'}_failed`), '', 'error')
+    if (message === 'Slug exists') {
+        return notify(t(`${params.id ? 'update' : 'create'}_failed`), '', 'error')
+    }
+    return notify(t('products.slug_exists'), '', 'error')
 }
 
 const handleImg = (e: any) => (formState.image_url = e.value.at(-1).response.result)

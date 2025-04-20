@@ -26,4 +26,5 @@ export default {
     update: {
         title: 'Chỉnh sửa sản phẩm',
     },
+    slug_exists: 'Slug đã tồn tại',
 }
